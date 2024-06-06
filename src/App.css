@@ -1,0 +1,324 @@
+
+
+footer {
+  background: #960606;
+  color: white
+}
+
+.custom-btn {
+  background-color: #960606;
+  border-color: #960606;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+}
+.custom-btn:hover {
+  background-color: #750505;
+  border-color: #750505;
+}
+
+.custom-btn2 {
+  background-color: #00007e;
+  border-color: #00007e;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+}
+.custom-btn2:hover {
+  background-color: #010154;
+  border-color: #010154;
+}
+
+
+.website-red{
+  background: #a71930;
+
+}
+.website-red{
+  background: #a71930;
+  margin: 10px;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bolder;
+  box-shadow: black 3px 3px 3px;
+}
+
+.website-blue{
+  background: #232c57;
+  margin: 10px;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bolder;
+  box-shadow: black 3px 3px 3px;
+  
+}
+
+.slide-p-size {
+  background: #a71930;
+  padding: 10px;
+  
+}
+
+
+.newsletter {
+  width: 300px;
+  border-radius: 10px;
+}
+
+form button {
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+header {
+  background-image: url("./images/headerbg.jpeg");
+   height: 300px;
+   margin-bottom: 20px;
+}
+
+.page-title {
+  padding: 20px;
+  margin: 70px;
+  text-align: center;
+  color: white;
+
+}
+
+.justina {
+  text-align: justify;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+
+
+.home-about-component {
+  background: #232c57;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.home-about-photo{
+  background-image: url("/src/images/about-us.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.nav-link-hover:hover {
+  color: #fff; /* Change text color on hover */
+  text-decoration: none; /* Remove underline on hover */
+  background: rgb(130, 130, 242);
+}
+
+/* auth form style */
+.auth-container {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #232c57;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* dashboard styling area */
+.side-bar {
+  font-size: 1rem;
+  padding: 1rem;
+  border-right: 1px dotted #0056b3;
+ 
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 10px;
+  
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li:hover {
+  border-bottom: 2px #232c57 solid;
+}
+
+.cards {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 5px;
+  width: 60%;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cards:hover {
+  box-shadow: 0px 8px 16px #1f2152;
+}
+
+
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.balance-block {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin: 20px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.stake-block {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin: 20px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.staking-input{
+  border-radius: 10px;
+  height: 50px;
+  border: none;
+  background-color: #e8e8e8;
+  margin-bottom: 10px;
+}
+
+.staking-btn {
+  background-color: #232c57;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+  height: 40px;
+  width: 100%;
+}
+
+.primary-color {
+  color: #232c57;
+}
+
+.input-done {
+  color: blue; /* Change the color to your desired color */
+}
+
+
+.submit-btn {
+  background: #232c57;
+   color: white;
+   padding: 5px;
+   width: 100px;
+  }
+
+/* the amount button to automatically fill the amount on the input */
+
+.mr-2 {
+  margin: 5px;
+  border: none;
+  background-color: rgb(234, 234, 234);
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+}
+
+.ml-2 {
+  margin: 5px;
+  border: none;
+  background-color: rgb(234, 234, 234);
+  border-radius: 5px;
+  height: 40px;
+  width: 50px;
+}
+
+.profit-estimate{
+  border-left: 2px solid rgb(234, 234, 234);
+  padding: 5px;
+  width: 200px;
+  color: #232c57;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.referal-container{
+  padding: 30px;
+}
+
+@media (max-width: 768px) {
+  .balance-block, .stake-block {
+    width: 100%;
+  }
+}
+
+/* study form style */
+
+.left-div {
+  background: url('./images/ukstudent.png') no-repeat center center;
+  background-size: cover;
+  min-height: 400px;
+}
+
+.form-control {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-bottom: 2px solid #007bff;
+  box-shadow: none;
+}
