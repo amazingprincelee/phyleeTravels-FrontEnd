@@ -56,8 +56,8 @@ const RegistrationForm = () => {
       {userData ? (
         <VerificationForm userId={userData.userId} email={userData.email} />
       ) : (
-        <div className="container d-flex justify-content-center align-items-center vh-100">
-          <div className="row shadow" style={{ width: '80%', maxWidth: '800px' }}>
+        <div className="container d-flex justify-content-center align-items-center min-vh-100">
+          <div className="row shadow w-100" style={{ maxWidth: '800px' }}>
             <div className="col-md-6 d-flex flex-column justify-content-center p-4 bg-light">
               <h3 className="text-center">Welcome to Phylee Journey</h3>
               <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
@@ -67,8 +67,9 @@ const RegistrationForm = () => {
                 <li>Service 3: Detailed descriptions of service 3.</li>
               </ul>
             </div>
-            <div className="col-md-6 p-4" style={{background:"#960606"}}>
-              <h2 className="text-center mb-4">Register</h2>
+            <div className="col-md-6 p-4" style={{ background: "#960606" }}>
+              <h2 className="text-center mb-4 text-white">Register</h2>
+              <p className="text-center mt-3 text-white">Already have an account? <button className="btn btn-link p-0" onClick={onLoginClick}>Login</button></p>
               <form onSubmit={handleRegistration}>
                 <div className="mb-3">
                   <label htmlFor="firstName" className="form-label text-white">First Name</label>
@@ -103,7 +104,6 @@ const RegistrationForm = () => {
                   )}
                 </button>
               </form>
-              <p className="text-center mt-3 text-white">Already have an account? <button className="btn btn-link p-0" onClick={onLoginClick}>Login</button></p>
             </div>
           </div>
         </div>

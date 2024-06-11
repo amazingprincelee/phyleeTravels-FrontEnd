@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios";
-import logo from '../images/logo.png'
+import logo from '../images/logo.png';
 
 function NavBar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -44,7 +44,7 @@ function NavBar() {
           id="navbarSupportedContent"
         >
           <Link to="/" onClick={handleLinkClick}>
-            <img src={logo} alt="Logo" width={200} height={50}/>
+            <img src={logo} alt="Logo" width={200} height={50} />
           </Link>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
             <li className="nav-item">
@@ -89,13 +89,12 @@ function NavBar() {
                 Find a course
               </Link>
             </li>
-            
           </ul>
           <div className="ml-auto">
             <ul className="navbar-nav">
               {isLoggedIn ? (
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle text-light" href="/#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <FaUserCircle style={{ fontSize: "24px" }} />
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -109,12 +108,23 @@ function NavBar() {
                 <>
                   <li className="nav-item">
                     <Link
-                      to="/Login"
+                      to="/Events"
                       className="nav-link text-light nav-link-hover"
                       style={{ fontSize: "16px", margin: "10px" }}
                       onClick={handleLinkClick}
                     >
-                      Sign in
+                      <FaCalendarAlt style={{ marginRight: "5px" }} /> Events
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link
+                      to="/FindUs"
+                      className="nav-link text-light nav-link-hover"
+                      style={{ fontSize: "16px", margin: "10px" }}
+                      onClick={handleLinkClick}
+                    >
+                      <FaMapMarkerAlt style={{ marginRight: "5px" }} /> Find us
                     </Link>
                   </li>
                   <li className="nav-item">

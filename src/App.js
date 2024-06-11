@@ -15,9 +15,12 @@ import EmailVerificationSuccess from "./components/EmailVerificationSuccess";
 import Destination from "./pages/Destination";
 import StudyAbroad from "./pages/StudyAbroad";
 import FindACourse from "./pages/FindACourse";
-import StudyForm from "./components/StudyForm.jsx";
+import StudyForm from "./components/ContactForm.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import LeadingUniversities from "./components/LeadingUniversities.jsx";
+import FindUs from "./pages/FindUs.js";
+import Events from "./pages/Events.js";
+import RegisterEvent from "./pages/RegisterEvent.js";
 
 
 
@@ -72,6 +75,15 @@ function App() {
         </Route>
         <Route path="/findACourse">
           <FindACourse />
+        </Route>
+        <Route path="/FindUs">
+          <FindUs />
+        </Route>
+        <Route path="/Events">
+          <Events />
+        </Route>
+        <Route path="/RegisterEvent">
+          <RegisterEvent />
         </Route>
       </Switch>
       <Footer />

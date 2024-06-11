@@ -38,9 +38,9 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="row shadow" style={{ width: '80%', maxWidth: '800px' }}>
-        <div className="col-md-6 d-flex flex-column justify-content-center p-4 bg-light">
+    <div className="container d-flex justify-content-center align-items-center min-vh-100">
+      <div className="row shadow w-100" style={{ maxWidth: '800px' }}>
+        <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-center p-4 bg-light">
           <h3 className="text-center">Welcome to Phylee Journey</h3>
           <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
           <ul>
@@ -49,27 +49,48 @@ const LoginForm = () => {
             <li>Service 3: Detailed descriptions of service 3.</li>
           </ul>
         </div>
-        <div className="col-md-6 p-4" style={{background:"#960606"}}>
-          <h2 className="text-center mb-4">Sign in</h2>
+        <div className="col-lg-6 col-md-12 p-4" style={{ background: "#960606" }}>
+          <h2 className="text-center mb-4 text-white">Sign in</h2>
           <form onSubmit={handleLogin}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label text-white">Email</label>
-              <input type="email" className="form-control" id="email" name="email" value={loginData.email} onChange={handleInputChange} required />
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                value={loginData.email}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label text-white">Password</label>
-              <input type="password" className="form-control" id="password" name="password" value={loginData.password} onChange={handleInputChange} required />
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             {error && <p className="text-danger">{error}</p>}
             <button type="submit" className="btn btn-primary w-100" disabled={loading}>
               {loading ? (
-                <ThreeDots type="ThreeDots" color="#ffffff" height={20} width={20} />
+                <ThreeDots color="#ffffff" height={20} width={20} />
               ) : (
                 'Login'
               )}
             </button>
           </form>
-          <p className="text-center mt-3 text-white">Don't have an account? <button className="btn btn-link p-0" onClick={onRegisterClick}>Register</button></p>
+          <p className="text-center mt-3 text-white">
+            Don't have an account?{' '}
+            <button className="btn btn-link p-0" onClick={onRegisterClick}>
+              Register
+            </button>
+          </p>
         </div>
       </div>
     </div>
