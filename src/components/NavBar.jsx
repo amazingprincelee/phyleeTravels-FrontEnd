@@ -49,7 +49,7 @@ function NavBar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
             <li className="nav-item">
               <Link
-                to="/StudyAbroad"
+                to="/"
                 className="nav-link active text-light"
                 aria-current="page"
                 style={{ fontSize: "16px", margin: "10px" }}

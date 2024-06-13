@@ -58,7 +58,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container ">
       <div className="d-flex flex-wrap">
         <div className="left-div flex-fill p-4 text-white d-flex flex-column justify-content-center">
           <h2>Welcome to Phylee Journey</h2>

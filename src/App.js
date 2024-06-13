@@ -21,6 +21,9 @@ import LeadingUniversities from "./components/LeadingUniversities.jsx";
 import FindUs from "./pages/FindUs.js";
 import Events from "./pages/Events.js";
 import RegisterEvent from "./pages/RegisterEvent.js";
+import ExpertTravelPage from "./pages/expert.js";
+import StudentLoan from "./pages/StudentLoan.js";
+import GroupTravelPage from "./pages/GroupTravelPage.js";
 
 
 
@@ -84,6 +87,15 @@ function App() {
         </Route>
         <Route path="/RegisterEvent">
           <RegisterEvent />
+        </Route>
+        <Route path="/Expert">
+          <ExpertTravelPage />
+        </Route>
+        <Route path="/student-loan">
+          <StudentLoan />
+        </Route>
+        <Route path="/group-travel">
+          <GroupTravelPage />
         </Route>
       </Switch>
       <Footer />
