@@ -79,7 +79,9 @@ const LoginForm = () => {
             {error && <p className="text-danger">{error}</p>}
             <button type="submit" className="btn btn-primary w-100" disabled={loading}>
               {loading ? (
-                <ThreeDots color="#ffffff" height={20} width={20} />
+                <div className='d-flex justify-content-center align-items-center'>
+                <ThreeDots color="#ffffff"  height={20} width={20}  />
+                </div>
               ) : (
                 'Login'
               )}

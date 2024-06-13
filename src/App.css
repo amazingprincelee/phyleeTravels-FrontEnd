@@ -17,6 +17,22 @@ footer {
   border-color: #750505;
 }
 
+.phylee-primary-btn {
+  background-color: #960606;
+  border-color: #ffffff;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  width: 250px;
+  
+}
+.phylee-primary-btn:hover {
+  background-color: #763c3c;
+  border-color: #e6e3e3;
+}
+
+
+
 .custom-btn2 {
   background-color: #00007e;
   border-color: #00007e;

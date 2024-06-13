@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import bradfordImage from '../images/bradford.png';
-import kentImage from '../images/kent.png';
+import kentImage from '../images/kent2.png';
 import hertfordshireImage from '../images/hertfordshire.png';
 
 const universities = [

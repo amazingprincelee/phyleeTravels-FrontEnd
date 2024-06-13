@@ -160,7 +160,7 @@ const ContactForm = () => {
               </label>
             </div>
 
-            <button type="submit" className="btn btn-primary">Contact now</button>
+            <button type="submit" className=" phylee-primary-btn">Contact now</button>
           </form>
         </div>
       </div>

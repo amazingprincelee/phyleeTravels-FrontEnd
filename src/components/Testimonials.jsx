@@ -1,23 +1,24 @@
 import React from 'react';
+import userIcon from "../images/user-icon.jpg"
 
 const testimonialsData = [
   {
-    name: 'John Doe',
-    title: 'CEO, Example Corp',
-    image: 'https://via.placeholder.com/150',
-    quote: 'This product has completely transformed our business!'
+    name: 'Amazing Lee',
+    title: 'IT, Business',
+    image: userIcon,
+    quote: 'Phylee Journeys efficiently facilitated my admission and assisted me in securing a student loan in the UK! Their knowledgeable staff provided personalized guidance throughout the entire process, ensuring I felt confident and supported every step of the way.'
   },
   {
     name: 'Jane Smith',
     title: 'CTO, Tech Innovators',
-    image: 'https://via.placeholder.com/150',
-    quote: 'I can’t imagine working without this tool anymore.'
+    image: userIcon,
+    quote: 'Phylee Journeys made planning my trip effortless and enjoyable. Their attention to detail and personalized service ensured that every aspect of my journey was seamless.'
   },
   {
     name: 'Sam Wilson',
     title: 'Designer, Creative Agency',
-    image: 'https://via.placeholder.com/150',
-    quote: 'It’s intuitive and easy to use, highly recommend it!'
+    image: userIcon,
+    quote: 'Phylee Journeys exceeded my expectations with their impeccable service and attention to detail. From booking flights to arranging accommodations, they made my travel experience stress-free and memorable.'
   }
 ];
 
