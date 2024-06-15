@@ -61,9 +61,11 @@ const VerificationForm = ({ userId, email }) => {
               className="form-control mb-3"
               placeholder="Verification Code"
             />
-            <button type="submit" className="submit-btn" disabled={loading}>
+            <button type="submit" className="custom-btn2" disabled={loading}>
               {loading ? (
+                <div className='d-flex justify-content-center align-items-center'>
                 <ThreeDots color="#ffffff" height={20} width={20} />
+                </div>
               ) : (
                 'Verify'
               )}

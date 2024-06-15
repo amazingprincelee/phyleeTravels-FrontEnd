@@ -61,15 +61,11 @@ const RegistrationForm = () => {
             <div className="col-md-6 d-flex flex-column justify-content-center p-4 bg-light">
               <h3 className="text-center">Welcome to Phylee Journey</h3>
               <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
-              <ul>
-                <li>Service 1: Detailed descriptions of service 1.</li>
-                <li>Service 2: Detailed descriptions of service 2.</li>
-                <li>Service 3: Detailed descriptions of service 3.</li>
-              </ul>
+              
             </div>
             <div className="col-md-6 p-4" style={{ background: "#960606" }}>
               <h2 className="text-center mb-4 text-white">Register</h2>
-              <p className="text-center mt-3 text-white">Already have an account? <button className="btn btn-link p-0" onClick={onLoginClick}>Login</button></p>
+              <p className="text-center mt-3 text-white">Already have an account? <button className="btn btn-light" onClick={onLoginClick}>Login</button></p>
               <form onSubmit={handleRegistration}>
                 <div className="mb-3">
                   <label htmlFor="firstName" className="form-label text-white">First Name</label>
@@ -96,9 +92,11 @@ const RegistrationForm = () => {
                   <label htmlFor="phone" className="form-label text-white">Phone Number</label>
                   <input type="tel" className="form-control" id="phone" name="phone" value={registrationData.phone} onChange={handleInputChange} required />
                 </div>
-                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                <button type="submit" className="custom-btn2 w-100" disabled={loading}>
                   {loading ? (
+                    <div className='d-flex justify-content-center align-items-center'>
                     <ThreeDots color="#ffffff" height={20} width={20} />
+                    </div>
                   ) : (
                     'Register'
                   )}

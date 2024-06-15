@@ -4,10 +4,13 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { HashRouter } from 'react-router-dom';
+import { AuthProvider } from '../src/components/AuthContext'; // Import AuthProvider
 
 ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
+  <AuthProvider>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </AuthProvider>,
   document.getElementById('root')
 );

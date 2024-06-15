@@ -344,3 +344,20 @@ h3 {
   height: 163px; /* Adjust according to your design */
   object-fit: cover; /* Ensures the image covers the entire container */
 }
+
+
+/* Home Dashboard.css */
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}

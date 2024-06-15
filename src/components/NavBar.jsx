@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
-import axios from "axios";
-import logo from '../images/logo.png';
+import { AuthContext } from "./AuthContext";
+import logo from "../images/logo.png";
 
 function NavBar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    checkAuthentication();
-  }, []);
+  const { isLoggedIn, logout } = useContext(AuthContext);
+  const dropdownRef = useRef(null);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -20,88 +17,98 @@ function NavBar() {
     setIsNavOpen(false); // Close the menu when a link is clicked
   };
 
-  const checkAuthentication = async () => {
-    try {
-      const response = await axios.get("https://quiet-ravine-44147-35b8bde85fde.herokuapp.com/api/auth/check-auth");
-      setIsLoggedIn(response.data.loggedIn);
-    } catch (error) {
-      console.error("Error checking authentication:", error);
+  const handleLogout = async () => {
+    await logout();
+    setIsNavOpen(false); // Close the menu after logout
+  };
+
+  const handleDropdownClick = (e) => {
+    e.preventDefault();
+    setIsNavOpen(!isNavOpen);
+  };
+
+  // Close dropdown when clicking outside
+  const handleOutsideClick = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsNavOpen(false);
     }
   };
 
+  // Add event listener for clicking outside
+  React.useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-bg-purple text-light" style={{ backgroundColor: '#00007e' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-bg-purple text-light" style={{ backgroundColor: "#00007e" }}>
       <div className="container-fluid">
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={toggleNav}
-        >
+        <button className="navbar-toggler" type="button" onClick={toggleNav}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div
-          className={`${isNavOpen ? "show" : ""} collapse navbar-collapse`}
-          id="navbarSupportedContent"
-        >
+        <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="navbarSupportedContent">
           <Link to="/" onClick={handleLinkClick}>
             <img src={logo} alt="Logo" width={200} height={50} />
           </Link>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-            <li className="nav-item">
-              <Link
-                to="/"
-                className="nav-link active text-light"
-                aria-current="page"
-                style={{ fontSize: "16px", margin: "10px" }}
-                onClick={handleLinkClick}
-              >
-                Study Abroad
-              </Link>
-            </li>
-            
-            <li className="nav-item">
-              <Link
-                to="/AboutUs"
-                className="nav-link text-light"
-                style={{ fontSize: "16px", margin: "10px" }}
-                onClick={handleLinkClick}
-              >
-                What we do
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/Destination"
-                className="nav-link text-light"
-                style={{ fontSize: "16px", margin: "10px" }}
-                onClick={handleLinkClick}
-              >
-                Destination
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/findAcourse"
-                className="nav-link text-light"
-                style={{ fontSize: "16px", margin: "10px" }}
-                onClick={handleLinkClick}
-              >
-                Find a course
-              </Link>
-            </li>
-          </ul>
-          <div className="ml-auto">
+          {!isLoggedIn && (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  style={{ fontSize: "16px", margin: "10px" }}
+                  onClick={handleLinkClick}
+                >
+                  Study Abroad
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/AboutUs"
+                  className="nav-link text-light"
+                  style={{ fontSize: "16px", margin: "10px" }}
+                  onClick={handleLinkClick}
+                >
+                  What we do
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/Destination"
+                  className="nav-link text-light"
+                  style={{ fontSize: "16px", margin: "10px" }}
+                  onClick={handleLinkClick}
+                >
+                  Destination
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/findAcourse"
+                  className="nav-link text-light"
+                  style={{ fontSize: "16px", margin: "10px" }}
+                  onClick={handleLinkClick}
+                >
+                  Find a course
+                </Link>
+              </li>
+            </ul>
+          )}
+          <div className="ms-auto">
             <ul className="navbar-nav">
               {isLoggedIn ? (
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li className="nav-item dropdown" ref={dropdownRef}>
+                  <a className="nav-link dropdown-toggle text-light" href="#" role="button" onClick={handleDropdownClick}>
                     <FaUserCircle style={{ fontSize: "24px" }} />
                   </a>
-                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <ul className={`dropdown-menu dropdown-menu-end ${isNavOpen ? "show" : ""}`}>
                     <li><Link to="/Profile" className="dropdown-item" onClick={handleLinkClick}>Profile</Link></li>
                     <li><Link to="/Settings" className="dropdown-item" onClick={handleLinkClick}>Settings</Link></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><Link to="/Logout" className="dropdown-item" onClick={handleLinkClick}>Logout</Link></li>
+                    <li><Link to="/Logout" className="dropdown-item" onClick={handleLogout}>Logout</Link></li>
                   </ul>
                 </li>
               ) : (
