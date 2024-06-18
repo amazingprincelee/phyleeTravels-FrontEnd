@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 import { FaUser, FaList, FaRocket, FaCheck } from 'react-icons/fa';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PostGraduate from '../servicesForm/Postgraduate';
+import Undergraduate from '../servicesForm/UnderGraduate';
+import SouthAfricaTourist from '../servicesForm/SouthAfricaTourist';
+import SchengenTourist from '../servicesForm/SchengenTourist';
+import EastAfricaVisa from '../servicesForm/EastAfrica';
+import MoroccoVisa from '../servicesForm/MoroccoVisa';
+import TurkeyTourist from '../servicesForm/TurkeyTourist';
 
 const HomeDashboard = () => {
   const [firstName, setFirstName] = useState('');
-//   const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const [showOptions, setShowOptions] = useState(false); // State to manage options visibility
+  const [selectedOption, setSelectedOption] = useState(null); // State to store selected option
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
   
@@ -33,12 +41,13 @@ const HomeDashboard = () => {
     fetchUserProfile();
   }, [token, userId]);
 
-  // Dummy data for demonstration purposes
-  const profileCompletion = 75; // Example percentage
-  const numberOfCourses = 5;
-  const numberOfOffers = 3;
+  const handleGetStartedClick = () => {
+    setShowOptions(true); // Show options when Get Started is clicked
+  };
 
- 
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option); // Set the selected option
+  };
 
   return (
     <div className="container my-4">
@@ -47,14 +56,12 @@ const HomeDashboard = () => {
         <div className="col-md-4">
           <div className="card text-center">
             <div className="card-body">
-              <FaUser className="icon mb-2" />
+              <FaUser className="icon mb-2 text-danger" />
               <h2 className="card-title">Profile</h2>
-              <p className="card-text">{profileCompletion}% completed</p>
-              {profileCompletion < 100 && (
-                <Link className="btn btn-danger" to="/dashboard/profile">
-                  View and Complete
-                </Link>
-              )}
+              <p className="card-text">75% completed</p>
+              <Link className="btn btn-danger" to="/dashboard/profile">
+                View and Complete
+              </Link>
             </div>
           </div>
         </div>
@@ -62,9 +69,9 @@ const HomeDashboard = () => {
         <div className="col-md-4">
           <div className="card text-center">
             <div className="card-body">
-              <FaList className="icon mb-2" />
+              <FaList className="icon mb-2 text-danger" />
               <h2 className="card-title">Shortlists</h2>
-              <p className="card-text">{numberOfCourses} courses</p>
+              <p className="card-text">5 courses</p>
               <Link to="/dashboard/saved-items" className="btn btn-danger">
                 View Saved Items
               </Link>
@@ -75,9 +82,9 @@ const HomeDashboard = () => {
         <div className="col-md-4">
           <div className="card text-center">
             <div className="card-body">
-              <FaRocket className="icon mb-2" />
+              <FaRocket className="icon mb-2 text-danger" />
               <h2 className="card-title">Fastlane</h2>
-              <p className="card-text">{numberOfOffers} offers received</p>
+              <p className="card-text">3 offers received</p>
               <Link to="/dashboard/offers" className="btn btn-danger">
                 View All Offers
               </Link>
@@ -86,19 +93,61 @@ const HomeDashboard = () => {
         </div>
       </div>
 
-      
-        <div className="d-flex align-items-center p-3 mt-4 bg-light rounded shadow-sm">
-          <FaCheck className="me-3" style={{ fontSize: '50px' }} />
-          <div className="flex-grow-1">
-            <h6 className="mb-0">Start your educational or travel journey today</h6>
-            <small className="text-muted">Your essential guide for every step of your international adventure!</small>
+      <div className="row mt-4">
+        <div className="col-md-6">
+          <div className="d-flex align-items-center p-3 bg-light rounded shadow-sm">
+            <FaCheck className="me-3" style={{ fontSize: '50px' }} />
+            <div className="flex-grow-1">
+              <h6 className="mb-0">Start your educational or travel journey today</h6>
+              <small className="text-muted">Your essential guide for every step of your international adventure!</small>
+            </div>
           </div>
-          <button className="custom-btn me-5 w-50" onClick={() => alert('We are still working on it!')}>
-            Register
-          </button>
-         
         </div>
-      
+        <div className="col-md-6">
+          {!showOptions && (
+            <button className="custom-btn w-100 mt-4" onClick={handleGetStartedClick}>
+              Get Started
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Conditional rendering based on user selection */}
+      {showOptions && (
+        <div className="mt-4">
+          <h2>Choose a Category:</h2>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('undergraduate')}>
+            Undergraduate Student
+          </button>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('postgraduate')}>
+            Postgraduate Student
+          </button>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('southAfricaTourist')}>
+            South Africa Tourist
+          </button>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('schengenTourist')}>
+            Schengen Tourist
+          </button>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('eastAfricaVisa')}>
+            East Africa Visa
+          </button>
+          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('moroccoVisa')}>
+            Morocco Visa
+          </button>
+          <button className="btn btn-light m-2" onClick={() => handleOptionSelect('turkeyTourist')}>
+            Turkey Tourist
+          </button>
+
+          {/* Render selected component */}
+          {selectedOption === 'undergraduate' && <Undergraduate />}
+          {selectedOption === 'postgraduate' && <PostGraduate />}
+          {selectedOption === 'southAfricaTourist' && <SouthAfricaTourist />}
+          {selectedOption === 'schengenTourist' && <SchengenTourist />}
+          {selectedOption === 'eastAfricaVisa' && <EastAfricaVisa />}
+          {selectedOption === 'moroccoVisa' && <MoroccoVisa />}
+          {selectedOption === 'turkeyTourist' && <TurkeyTourist />}
+        </div>
+      )}
     </div>
   );
 };

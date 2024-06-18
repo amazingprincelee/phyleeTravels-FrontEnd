@@ -45,58 +45,60 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-bg-purple text-light" style={{ backgroundColor: "#00007e" }}>
       <div className="container-fluid">
+        <Link to="/" className="navbar-brand">
+          <img src={logo} alt="Logo" className="navbar-logo" />
+        </Link>
         <button className="navbar-toggler" type="button" onClick={toggleNav}>
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="navbarSupportedContent">
-          <Link to="/" onClick={handleLinkClick}>
-            <img src={logo} alt="Logo" width={200} height={50} />
-          </Link>
-          {!isLoggedIn && (
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-              <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  style={{ fontSize: "16px", margin: "10px" }}
-                  onClick={handleLinkClick}
-                >
-                  Study Abroad
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/AboutUs"
-                  className="nav-link text-light"
-                  style={{ fontSize: "16px", margin: "10px" }}
-                  onClick={handleLinkClick}
-                >
-                  What we do
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/Destination"
-                  className="nav-link text-light"
-                  style={{ fontSize: "16px", margin: "10px" }}
-                  onClick={handleLinkClick}
-                >
-                  Destination
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/findAcourse"
-                  className="nav-link text-light"
-                  style={{ fontSize: "16px", margin: "10px" }}
-                  onClick={handleLinkClick}
-                >
-                  Find a course
-                </Link>
-              </li>
-            </ul>
-          )}
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+            {!isLoggedIn && (
+              <>
+                <li className="nav-item">
+                  <Link
+                    to="/"
+                    className="nav-link active text-light"
+                    aria-current="page"
+                    style={{ fontSize: "16px", margin: "10px" }}
+                    onClick={handleLinkClick}
+                  >
+                    Study Abroad
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/AboutUs"
+                    className="nav-link text-light"
+                    style={{ fontSize: "16px", margin: "10px" }}
+                    onClick={handleLinkClick}
+                  >
+                    What we do
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/Destination"
+                    className="nav-link text-light"
+                    style={{ fontSize: "16px", margin: "10px" }}
+                    onClick={handleLinkClick}
+                  >
+                    Destination
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/findAcourse"
+                    className="nav-link text-light"
+                    style={{ fontSize: "16px", margin: "10px" }}
+                    onClick={handleLinkClick}
+                  >
+                    Find a course
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
           <div className="ms-auto">
             <ul className="navbar-nav">
               {isLoggedIn ? (

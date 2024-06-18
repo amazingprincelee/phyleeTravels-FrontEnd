@@ -87,23 +87,26 @@ const ContactForm = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="preferredStudyDestination" className="form-label text-white">Your Preferred Study Destination</label>
+              <label htmlFor="preferredStudyDestination" className="form-label text-white">Your Preferred  Destination</label>
               <select className="form-select" id="preferredStudyDestination" value={formData.preferredStudyDestination} onChange={handleChange}>
                 <option>USA</option>
                 <option>UK</option>
                 <option>Canada</option>
                 <option>Australia</option>
                 <option>Germany</option>
+                <option>Europe</option>
+                <option>Other</option>
               </select>
             </div>
 
             <div className="mb-3">
-              <label htmlFor="whenPlanToStudy" className="form-label text-white">When do you plan to study?</label>
+              <label htmlFor="whenPlanToStudy" className="form-label text-white">When do you plan your Journey?</label>
               <select className="form-select" id="whenPlanToStudy" value={formData.whenPlanToStudy} onChange={handleChange}>
                 <option>January 2024</option>
                 <option>May 2024</option>
                 <option>September 2024</option>
                 <option>January 2025</option>
+                <option>Other</option>
               </select>
             </div>
 
@@ -117,11 +120,13 @@ const ContactForm = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="preferredStudyLevel" className="form-label text-white">Preferred Study Level</label>
+              <label htmlFor="preferredStudyLevel" className="form-label text-white">Preferred Study Level/type of Journey </label>
               <select className="form-select" id="preferredStudyLevel" value={formData.preferredStudyLevel} onChange={handleChange}>
                 <option>Undergraduate</option>
                 <option>Master's</option>
                 <option>PhD</option>
+                <option>Visiting</option>
+                <option>Tourism</option>
               </select>
             </div>
 

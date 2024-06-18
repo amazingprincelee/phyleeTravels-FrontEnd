@@ -24,6 +24,7 @@ import RegisterEvent from "./pages/RegisterEvent.js";
 import ExpertTravelPage from "./pages/expert.js";
 import StudentLoan from "./pages/StudentLoan.js";
 import GroupTravelPage from "./pages/GroupTravelPage.js";
+import ScrollToTop from "./components/scrollToTop.jsx";
 
 
 
@@ -36,6 +37,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <div>

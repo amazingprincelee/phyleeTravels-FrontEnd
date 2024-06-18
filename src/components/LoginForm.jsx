@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { login } = useContext(AuthContext);
+  const { login, updateUserWithEmail } = useContext(AuthContext); // Access updateUserWithEmail from AuthContext
   const history = useHistory();
 
   const handleInputChange = (e) => {
@@ -27,6 +27,7 @@ const LoginForm = () => {
 
     try {
       await login(loginData);
+      updateUserWithEmail(loginData.email); // Update user with email after successful login
       history.push('/dashboard');
     } catch (error) {
       setError(error.message);
