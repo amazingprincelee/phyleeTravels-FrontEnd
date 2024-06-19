@@ -116,25 +116,25 @@ const HomeDashboard = () => {
       {showOptions && (
         <div className="mt-4">
           <h2>Choose a Category:</h2>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('undergraduate')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('undergraduate')}>
             Undergraduate Student
           </button>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('postgraduate')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('postgraduate')}>
             Postgraduate Student
           </button>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('southAfricaTourist')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('southAfricaTourist')}>
             South Africa Tourist
           </button>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('schengenTourist')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('schengenTourist')}>
             Schengen Tourist
           </button>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('eastAfricaVisa')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('eastAfricaVisa')}>
             East Africa Visa
           </button>
-          <button className="btn btn-light me-3 m-2" onClick={() => handleOptionSelect('moroccoVisa')}>
+          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('moroccoVisa')}>
             Morocco Visa
           </button>
-          <button className="btn btn-light m-2" onClick={() => handleOptionSelect('turkeyTourist')}>
+          <button className="services-btn text-danger m-2" onClick={() => handleOptionSelect('turkeyTourist')}>
             Turkey Tourist
           </button>
 

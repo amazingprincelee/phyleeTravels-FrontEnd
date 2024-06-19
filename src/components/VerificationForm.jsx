@@ -11,8 +11,7 @@ const VerificationForm = ({ userId, email }) => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("userId in VerificationForm:", userId);
-    console.log("email in VerificationForm:", email);
+   
     // Update the verification message when email changes
     if (email) {
       setVerificationMessage(`A verification code has been sent to your email address: ${email}.`);

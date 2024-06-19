@@ -8,13 +8,20 @@ footer {
 .custom-btn {
   background-color: #960606;
   border-color: #960606;
-  color: white;
+  color: black;
   border-radius: 3px;
   padding: 5px;
 }
 .custom-btn:hover {
   background-color: #750505;
   border-color: #750505;
+}
+
+.services-btn {
+  border-color: #960606;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
 }
 
 .phylee-primary-btn {
