@@ -83,12 +83,6 @@ function Undergraduate() {
 
             <form onSubmit={handleSubmit}>
                 <div className="mb-3 row">
-                    <label htmlFor="proofofpayment" className="col-sm-4 col-form-label text-danger">Proof Of Payment:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control bg-info" required id="proofofpayment" name="proofofpayment" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
                     <label htmlFor="waecNeco" className="col-sm-4 col-form-label">WAEC/NECO:</label>
                     <div className="col-sm-8">
                         <input type="file" className="form-control" id="waecNeco" name="waecNeco" onChange={handleFileChange} multiple />
