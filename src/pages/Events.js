@@ -55,7 +55,7 @@ function Events() {
                     <p className="card-text">Location: {event.location}</p>
                     <p className="card-text">Date: {new Date(event.date).toLocaleDateString()}</p>
                     <p className="card-text">Time: {event.time}</p>
-                    <button className="custom-btn" onClick={() => handleRegister(event)}>Register</button>
+                    <button className="custom-btn text-light" onClick={() => handleRegister(event)}>Register</button>
                   </div>
                 </div>
               </div>

@@ -105,7 +105,7 @@ const HomeDashboard = () => {
         </div>
         <div className="col-md-6">
           {!showOptions && (
-            <button className="custom-btn w-100 mt-4" onClick={handleGetStartedClick}>
+            <button className="custom-btn w-100 mt-4 text-light" onClick={handleGetStartedClick}>
               Get Started
             </button>
           )}
