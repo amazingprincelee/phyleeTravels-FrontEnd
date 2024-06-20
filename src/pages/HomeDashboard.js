@@ -83,7 +83,7 @@ const HomeDashboard = () => {
           <div className="card text-center">
             <div className="card-body">
               <FaRocket className="icon mb-2 text-danger" />
-              <h2 className="card-title">Fastlane</h2>
+              <h2 className="card-title">My Offer</h2>
               <p className="card-text">3 offers received</p>
               <Link to="/dashboard/offers" className="btn btn-danger">
                 View All Offers

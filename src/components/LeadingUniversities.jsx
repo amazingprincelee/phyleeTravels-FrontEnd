@@ -43,7 +43,7 @@ const StudyAtLeadingUniversities = () => {
               <div className="card-body">
                 <h5 className="card-title">{uni.name}</h5>
                 <p className="card-text">{uni.description}</p>
-                <a href={uni.link} ><button className=" custom-btn">Learn More</button></a>
+                <a href={uni.link} ><button className=" custom-btn text-light">Learn More</button></a>
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-bg-purple text-light" style={{ backgroundColor: "#00007e" }}>
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
-          <img src={logo} alt="Logo" className="navbar-logo" />
+          <img src={logo} alt="Logo" className="navbar-logo" width={250} height={50} />
         </Link>
         <button className="navbar-toggler" type="button" onClick={toggleNav}>
           <span className="navbar-toggler-icon"></span>

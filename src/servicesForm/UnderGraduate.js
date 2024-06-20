@@ -37,43 +37,41 @@ function Undergraduate() {
     }, [userId, token]);
 
     const handleFileChange = (event) => {
-        setSelectedFiles(event.target.files);
+        setSelectedFiles(prevFiles => [...prevFiles, ...Array.from(event.target.files)]);
     };
 
     const handleSubmit = async (event) => {
-      event.preventDefault();
-  
-      if (!email) {
-          console.error('User email is not available.');
-          return;
-      }
-  
-      setLoading(true);
-  
-      const formData = new FormData();
-      for (let i = 0; i < selectedFiles.length; i++) {
-          formData.append('files', selectedFiles[i]);
-      }
-  
-      try {
-          const url = `https://phylee-75a6aa507dc5.herokuapp.com/api/services/undergraduate/upload-files/${encodeURIComponent(email)}`;
-          console.log(`Submitting to URL: ${url}`);
-          const response = await axios.post(url, formData, {
-              headers: {
-                  'Content-Type': 'multipart/form-data',
-              },
-          });
-          
-          setMessage(response.data.message);
-      } catch (error) {
-          console.error('Error uploading files:', error);
-          setMessage('Error uploading files');
-      } finally {
-          setLoading(false);
-      }
-  };
-  
-  
+        event.preventDefault();
+
+        if (!email) {
+            console.error('User email is not available.');
+            return;
+        }
+
+        setLoading(true);
+
+        const formData = new FormData();
+        selectedFiles.forEach((file, index) => {
+            formData.append(`files[${index}]`, file);
+        });
+
+        try {
+            const url = `https://phylee-75a6aa507dc5.herokuapp.com/api/services/undergraduate/upload-files/${encodeURIComponent(email)}`;
+            console.log(`Submitting to URL: ${url}`);
+            const response = await axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            setMessage(response.data.message);
+        } catch (error) {
+            console.error('Error uploading files:', error);
+            setMessage('Error uploading files');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="container mt-5">
@@ -85,31 +83,31 @@ function Undergraduate() {
                 <div className="mb-3 row">
                     <label htmlFor="waecNeco" className="col-sm-4 col-form-label">WAEC/NECO:</label>
                     <div className="col-sm-8">
-                        <input type="file" className="form-control" id="waecNeco" name="waecNeco" onChange={handleFileChange} multiple />
+                        <input type="file" className="form-control" id="waecNeco" name="files" onChange={handleFileChange} multiple />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="curriculumVitae" className="col-sm-4 col-form-label">Curriculum Vitae:</label>
                     <div className="col-sm-8">
-                        <input type="file" className="form-control" id="curriculumVitae" name="curriculumVitae" onChange={handleFileChange} multiple />
+                        <input type="file" className="form-control" id="curriculumVitae" name="files" onChange={handleFileChange} multiple />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="birthDocument" className="col-sm-4 col-form-label">Birth Certificate/Affidavit:</label>
                     <div className="col-sm-8">
-                        <input type="file" className="form-control" id="birthDocument" name="birthDocument" onChange={handleFileChange} multiple />
+                        <input type="file" className="form-control" id="birthDocument" name="files" onChange={handleFileChange} multiple />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="passportDataPage" className="col-sm-4 col-form-label">International Passport:</label>
                     <div className="col-sm-8">
-                        <input type="file" className="form-control" id="passportDataPage" name="passportDataPage" onChange={handleFileChange} multiple />
+                        <input type="file" className="form-control" id="passportDataPage" name="files" onChange={handleFileChange} multiple />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="recommendationLetters" className="col-sm-4 col-form-label">Recommendation Letters:</label>
                     <div className="col-sm-8">
-                        <input type="file" className="form-control" id="recommendationLetters" name="recommendationLetters" onChange={handleFileChange} multiple />
+                        <input type="file" className="form-control" id="recommendationLetters" name="files" onChange={handleFileChange} multiple />
                     </div>
                 </div>
                 <div className="mb-3 row">

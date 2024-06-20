@@ -65,7 +65,7 @@ function FindACourse() {
                   <p className="card-text">{course.description}</p>
                   <p className="card-text"><strong>Provider:</strong> {course.provider}</p>
                   <p className="card-text"><strong>Duration:</strong> {course.duration}</p>
-                  <button className="custom-btn">Learn More</button>
+                  <button className="custom-btn text-light">Learn More</button>
                 </div>
               </div>
             </div>

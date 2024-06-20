@@ -384,7 +384,7 @@ h3 {
 }
 
 .navbar-logo {
-  width: 200px;
+  width: 100px;
   height: auto;
   transition: width 0.3s ease;
 }
