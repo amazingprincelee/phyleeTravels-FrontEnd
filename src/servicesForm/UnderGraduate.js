@@ -52,6 +52,7 @@ function Undergraduate() {
 
         const formData = new FormData();
         selectedFiles.forEach((file, index) => {
+            console.log(`Appending file: ${file.name}`);
             formData.append(`files[${index}]`, file);
         });
 
@@ -64,7 +65,14 @@ function Undergraduate() {
                 },
             });
 
-            setMessage(response.data.message);
+            console.log('Upload response:', response);
+
+            if (response.status === 201) {
+                setMessage(response.data.message);
+            } else {
+                setMessage('Error uploading files');
+                console.error('Unexpected response status:', response.status);
+            }
         } catch (error) {
             console.error('Error uploading files:', error);
             setMessage('Error uploading files');

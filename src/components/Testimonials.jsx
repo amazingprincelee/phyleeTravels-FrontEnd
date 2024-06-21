@@ -6,19 +6,19 @@ const testimonialsData = [
     name: 'Amazing Lee',
     title: 'IT, Business',
     image: userIcon,
-    quote: 'Phylee Journeys efficiently facilitated my admission and assisted me in securing a student loan in the UK! Their knowledgeable staff provided personalized guidance throughout the entire process, ensuring I felt confident and supported every step of the way.'
+    quote: ' Phylee Travel and Tours efficiently facilitated my admission and assisted me in securing a student loan in the UK! Their knowledgeable staff provided personalized guidance throughout the entire process, ensuring I felt confident and supported every step of the way.'
   },
   {
     name: 'Jane Smith',
     title: 'CTO, Tech Innovators',
     image: userIcon,
-    quote: 'Phylee Journeys made planning my trip effortless and enjoyable. Their attention to detail and personalized service ensured that every aspect of my journey was seamless.'
+    quote: ' Phylee Travel and Tours  made planning my trip effortless and enjoyable. Their attention to detail and personalized service ensured that every aspect of my journey was seamless.'
   },
   {
     name: 'Sam Wilson',
     title: 'Designer, Creative Agency',
     image: userIcon,
-    quote: 'Phylee Journeys exceeded my expectations with their impeccable service and attention to detail. From booking flights to arranging accommodations, they made my travel experience stress-free and memorable.'
+    quote: ' Phylee Travel and Tours  exceeded my expectations with their impeccable service and attention to detail. From booking flights to arranging accommodations, they made my travel experience stress-free and memorable.'
   }
 ];
 
