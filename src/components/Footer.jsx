@@ -90,10 +90,10 @@ function Footer() {
           <div className="col-md-3">
             <h5>Top Courses</h5>
             <ul className="list-unstyled">
-              <li><Link to="/find-a-course" className="text-white">Engineering</Link></li>
-              <li><Link to="/find-a-course" className="text-white">Computer & IT</Link></li>
-              <li><Link to="/find-a-course" className="text-white">Health and Medicine</Link></li>
-              <li><Link to="/find-a-course" className="text-white">Business & Management</Link></li>
+              <li><Link to="/findACourse" className="text-white">Engineering</Link></li>
+              <li><Link to="/findACourse" className="text-white">Computer & IT</Link></li>
+              <li><Link to="/findACourse" className="text-white">Health and Medicine</Link></li>
+              <li><Link to="/findACourse" className="text-white">Business & Management</Link></li>
             </ul>
           </div>
 
