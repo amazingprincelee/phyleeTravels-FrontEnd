@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function RegisterEvent() {
   const history = useHistory();
   const location = useLocation();
-  const event = location.state.event;
+
+  // State to hold event data and registration form data
+  const [event, setEvent] = useState(null);
   const [registrationData, setRegistrationData] = useState({
-    eventId: event._id,
+    eventId: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -19,9 +21,28 @@ function RegisterEvent() {
     lastEducationalQualification: '',
     educationFund: ''
   });
+
+  // Modal state
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ title: '', message: '' });
 
+  // Effect to handle initial load and refresh
+  useEffect(() => {
+    // Check if location state contains event
+    if (location.state && location.state.event) {
+      setEvent(location.state.event);
+      setRegistrationData(prevData => ({
+        ...prevData,
+        eventId: location.state.event._id // Set eventId in registrationData
+      }));
+    } else {
+      // Handle the case where event is not available in location state
+      // Redirect to events page or handle gracefully
+      history.push('/events');
+    }
+  }, [location.state, history]);
+
+  // Handle form input changes
   const handleChange = (e) => {
     const { id, value } = e.target;
     setRegistrationData({
@@ -30,6 +51,7 @@ function RegisterEvent() {
     });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -54,10 +76,16 @@ function RegisterEvent() {
     }
   };
 
+  // Close modal and redirect to events page
   const closeModal = () => {
     setModalVisible(false);
     history.push('/events');
   };
+
+  // Render loading state or null if event is not loaded yet
+  if (!event) {
+    return null; // or loading indicator, depending on your UI needs
+  }
 
   return (
     <div className="container mt-5 mb-5">
@@ -114,15 +142,30 @@ function RegisterEvent() {
         </div>
         <div className="mb-3">
           <label htmlFor="lastEducationalQualification" className="form-label">Last Educational Qualification</label>
-          <input type="text" className="form-control" id="lastEducationalQualification" value={registrationData.lastEducationalQualification} onChange={handleChange} required />
+          <select className="form-select" id="lastEducationalQualification" value={registrationData.lastEducationalQualification} onChange={handleChange} required>
+            <option value="">Select</option>
+            <option value="High School Diploma">High School Diploma</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="PhD">PhD</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div className="mb-3">
           <label htmlFor="educationFund" className="form-label">Education Fund</label>
-          <input type="text" className="form-control" id="educationFund" value={registrationData.educationFund} onChange={handleChange} required />
+          <select className="form-select" id="educationFund" value={registrationData.educationFund} onChange={handleChange} required>
+            <option value="">Select</option>
+            <option value="Self-funded">Self-funded</option>
+            <option value="Scholarship">Scholarship</option>
+            <option value="Loan">Loan</option>
+            <option value="Sponsorship">Sponsorship</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="custom-btn text-light">Submit</button>
       </form>
 
+      {/* Modal */}
       {modalVisible && (
         <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
