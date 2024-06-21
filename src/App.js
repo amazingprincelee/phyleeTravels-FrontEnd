@@ -25,6 +25,7 @@ import ExpertTravelPage from "./pages/expert.js";
 import StudentLoan from "./pages/StudentLoan.js";
 import GroupTravelPage from "./pages/GroupTravelPage.js";
 import ScrollToTop from "./components/scrollToTop.jsx";
+import AdminPage from "./pages/AdminPage.js";
 
 
 
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path="/Dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/AdminPage">
+          <AdminPage />
         </Route>
         <Route path="/AboutUs">
           <AboutUs />

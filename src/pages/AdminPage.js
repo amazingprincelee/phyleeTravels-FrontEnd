@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, Route, Switch, useRouteMatch, useHistory } from 'react-router-dom';
-import { FaHome, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaCalendarAlt, FaEnvelope, FaUserCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Profile from './Profile';
 import AccountSettings from './AccountSettings';
-import HomeDashboard from './HomeDashboard';
+import AdminHomeDashboard from './AdminHomeDashboard';
+import EventArea from '../adminPages/EventArea';
+import ContactFormArea from '../adminPages/ContactFormArea';
 
 // Placeholder components for the different sections of the dashboard
 const Notifications = () => <div>Notifications Content</div>;
@@ -41,13 +43,23 @@ const Dashboard = () => {
           <div className="position-sticky pt-3">
             <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/home-dashboard`}>
-                  <FaHome className="me-2" /> Home
+                <Link className="nav-link active" to={`${url}/admin-dashboard`}>
+                  <FaUser className="me-2" /> Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/event-area`}>
+                  <FaCalendarAlt className="me-2" /> Event
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/contactForm-area`}>
+                  <FaEnvelope className="me-2" /> Contact Form
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" to={`${url}/profile`}>
-                  <FaUser className="me-2" /> Profile
+                  <FaUserCircle className="me-2" /> Profile
                 </Link>
               </li>
               <li className="nav-item">
@@ -69,13 +81,19 @@ const Dashboard = () => {
           <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
           <Switch>
             <Route exact path={path}>
-              <HomeDashboard />
+              <AdminHomeDashboard />
             </Route>
-            <Route exact path={`${path}/home-dashboard`}>
-              <HomeDashboard />
+            <Route exact path={`${path}/admin-dashboard`}>
+              <AdminHomeDashboard />
             </Route>
             <Route path={`${path}/profile`}>
               <Profile />
+            </Route>
+            <Route path={`${path}/event-area`}>
+              <EventArea />
+            </Route>
+            <Route path={`${path}/contactForm-area`}>
+              <ContactFormArea />
             </Route>
             <Route path={`${path}/account-settings`}>
               <AccountSettings />

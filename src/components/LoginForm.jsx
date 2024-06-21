@@ -1,4 +1,3 @@
-// LoginForm.js
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
@@ -9,7 +8,7 @@ const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { login, updateUserWithEmail } = useContext(AuthContext); // Access updateUserWithEmail from AuthContext
+  const { login, user } = useContext(AuthContext);
   const history = useHistory();
 
   const handleInputChange = (e) => {
@@ -26,9 +25,11 @@ const LoginForm = () => {
     setError(null);
 
     try {
-      await login(loginData);
-      updateUserWithEmail(loginData.email); // Update user with email after successful login
-      history.push('/dashboard');
+      const redirectPath = await login(loginData);
+
+      // Redirect based on the returned path from login
+      history.push(redirectPath);
+
     } catch (error) {
       setError(error.message);
     } finally {

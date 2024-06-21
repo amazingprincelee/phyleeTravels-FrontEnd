@@ -1,4 +1,3 @@
-// AuthContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -6,7 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null); // State to hold user data
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     checkAuthentication();
@@ -17,14 +16,12 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/check-auth');
       setIsLoggedIn(response.data.loggedIn);
       if (response.data.loggedIn) {
-        setUser(response.data.user); // Set user data if logged in
+        setUser(response.data.user);
       }
     } catch (error) {
       console.error('Error checking authentication:', error);
     }
   };
-
-  
 
   const login = async (loginData) => {
     try {
@@ -34,7 +31,14 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('email', response.data.user.email);
         setIsLoggedIn(true);
-        setUser(response.data.user); // Set user data upon successful login
+        setUser(response.data.user);
+
+        // Redirect based on role
+        if (response.data.user.role === 'admin') {
+          return '/AdminPage'; // Redirect to AdminPage if user is admin
+        } else {
+          return '/dashboard'; // Redirect to dashboard for non-admin users
+        }
       } else {
         throw new Error('Login failed');
       }
@@ -48,18 +52,18 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/logout');
       if (response.status === 200) {
         setIsLoggedIn(false);
-        setUser(null); // Clear user data upon logout
+        setUser(null);
         localStorage.removeItem('userId');
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
       }
     } catch (error) {
       console.error('Error logging out:', error);
     }
   };
 
-  // Function to update user with email
   const updateUserWithEmail = (email) => {
-    setUser({ ...user, email }); // Update user object with email
+    setUser({ ...user, email });
   };
 
   return (
