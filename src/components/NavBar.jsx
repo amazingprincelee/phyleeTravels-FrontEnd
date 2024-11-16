@@ -1,154 +1,139 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaUserCircle, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { AuthContext } from "./AuthContext";
-import logo from "../images/logo.png";
+import logo from "../images/logo2.png";
+import { FaSearch } from "react-icons/fa";
 
 function NavBar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const { isLoggedIn, logout } = useContext(AuthContext);
-  const dropdownRef = useRef(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-  const handleLinkClick = () => {
-    setIsNavOpen(false); // Close the menu when a link is clicked
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
-  const handleLogout = async () => {
-    await logout();
-    setIsNavOpen(false); // Close the menu after logout
-  };
-
-  const handleDropdownClick = (e) => {
-    e.preventDefault();
-    setIsNavOpen(!isNavOpen);
-  };
-
-  // Close dropdown when clicking outside
-  const handleOutsideClick = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsNavOpen(false);
-    }
-  };
-
-  // Add event listener for clicking outside
-  React.useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
+  // Sample package items (you can replace or add more)
+  const packages = [
+    "Package 1",
+    "Package 2",
+    "Package 3",
+    "Package 4",
+    "Package 5",
+    "Package 6",
+    "Package 7",
+    "Package 8",
+    "Package 9",
+    "Package 10",
+    // Add more packages as needed
+  ];
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-bg-purple text-light" style={{ backgroundColor: "#00007e" }}>
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-sm navbar-dark fixed-top" style={{ backgroundColor: "rgba(0, 0, 126, 1)" }}>
+      <div className="container-fluid" style={{ height: "50px" }}>
         <Link to="/" className="navbar-brand">
-          <img src={logo} alt="Logo" className="navbar-logo" width={250} height={50} />
+          <img src={logo} alt="Logo" width={105} height={50} />
         </Link>
         <button className="navbar-toggler" type="button" onClick={toggleNav}>
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-            {!isLoggedIn && (
-              <>
-                <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-link active text-light"
-                    aria-current="page"
-                    style={{ fontSize: "16px", margin: "10px" }}
-                    onClick={handleLinkClick}
-                  >
-                    Study Abroad
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/AboutUs"
-                    className="nav-link text-light"
-                    style={{ fontSize: "16px", margin: "10px" }}
-                    onClick={handleLinkClick}
-                  >
-                    What we do
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/Destination"
-                    className="nav-link text-light"
-                    style={{ fontSize: "16px", margin: "10px" }}
-                    onClick={handleLinkClick}
-                  >
-                    Destination
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/findAcourse"
-                    className="nav-link text-light"
-                    style={{ fontSize: "16px", margin: "10px" }}
-                    onClick={handleLinkClick}
-                  >
-                    Find a course
-                  </Link>
-                </li>
-              </>
-            )}
+          <ul className="mx-auto mb-2 navbar-nav mt-lg-4">
+            <li className="nav-item">
+              <Link to="/" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle text-light"
+                id="destinationDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "16px", margin: "10px" }}
+              >
+                Get in Touch
+              </Link>
+              <ul className="dropdown-menu" aria-labelledby="destinationDropdown">
+                <li><Link to="/destination/1" className="dropdown-item">About us</Link></li>
+                <li><Link to="/destination/2" className="dropdown-item">Contact us</Link></li>
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle text-light"
+                id="packageDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "16px", margin: "10px" }}
+              >
+                Package
+              </Link>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="packageDropdown"
+                style={{
+                  width: "300px", // Set a width for the dropdown
+                  padding: "10px",
+                }}
+              >
+                <div className="row">
+                  {packages.map((pkg, index) => (
+                    <div key={index} className="col-6" style={{ marginBottom: "10px" }}>
+                      <Link to={`/package/${index + 1}`} className="dropdown-item">
+                        {pkg}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle text-light"
+                id="destinationDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "16px", margin: "10px" }}
+              >
+                Destination
+              </Link>
+              <ul className="dropdown-menu" aria-labelledby="destinationDropdown">
+                <li><Link to="/destination/1" className="dropdown-item">Destination 1</Link></li>
+                <li><Link to="/destination/2" className="dropdown-item">Destination 2</Link></li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <Link to="/blog" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
+                Blog
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/signin" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
+                Sign in
+              </Link>
+            </li>
           </ul>
-          <div className="ms-auto">
-            <ul className="navbar-nav">
-              {isLoggedIn ? (
-                <li className="nav-item dropdown" ref={dropdownRef}>
-                  <a className="nav-link dropdown-toggle text-light" href="#" role="button" onClick={handleDropdownClick}>
-                    <FaUserCircle style={{ fontSize: "24px" }} />
-                  </a>
-                  <ul className={`dropdown-menu dropdown-menu-end ${isNavOpen ? "show" : ""}`}>
-                    <li><Link to="/Profile" className="dropdown-item" onClick={handleLinkClick}>Profile</Link></li>
-                    <li><Link to="/Settings" className="dropdown-item" onClick={handleLinkClick}>Settings</Link></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><Link to="/Logout" className="dropdown-item" onClick={handleLogout}>Logout</Link></li>
-                  </ul>
-                </li>
-              ) : (
-                <>
-                  <li className="nav-item">
-                    <Link
-                      to="/Events"
-                      className="nav-link text-light nav-link-hover"
-                      style={{ fontSize: "16px", margin: "10px" }}
-                      onClick={handleLinkClick}
-                    >
-                      <FaCalendarAlt style={{ marginRight: "5px" }} /> Events
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      to="/FindUs"
-                      className="nav-link text-light nav-link-hover"
-                      style={{ fontSize: "16px", margin: "10px" }}
-                      onClick={handleLinkClick}
-                    >
-                      <FaMapMarkerAlt style={{ marginRight: "5px" }} /> Find us
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      to="/Registration"
-                      className="nav-link text-light nav-link-hover"
-                      style={{ fontSize: "16px", margin: "10px" }}
-                      onClick={handleLinkClick}
-                    >
-                      Sign up
-                    </Link>
-                  </li>
-                </>
-              )}
-            </ul>
+          <div className="d-flex align-items-center">
+            <button className="btn btn-link text-light" onClick={toggleSearch}>
+              <FaSearch />
+            </button>
+            {isSearchOpen && (
+              <input
+                type="text"
+                className="form-control ms-2"
+                placeholder="Search..."
+                style={{ width: "200px" }}
+              />
+            )}
           </div>
         </div>
       </div>

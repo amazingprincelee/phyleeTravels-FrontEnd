@@ -1,9 +1,6 @@
 
 
-footer {
-  background: #960606;
-  color: white
-}
+
 
 .custom-btn {
   background-color: #960606;
@@ -95,11 +92,94 @@ form button {
   margin-left: 5px;
 }
 
+
 header {
   background-image: url("./images/headerbg.jpeg");
    height: 300px;
    margin-bottom: 20px;
 }
+
+.header-action {
+  border-radius: 20px;
+  width: 100%; 
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+
+}
+
+
+
+@media (min-width: 992px) {
+  .header-action {
+    width: 50%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-caption {
+    top: 20%;
+    left: 5%;
+  }
+
+  .custom-caption h1 {
+    font-size: 2.5rem; 
+  }
+
+  .custom-caption p {
+    font-size: 0.9rem; /* Smaller text */
+  }
+
+
+  .header-action-btn,
+  .btn-dark {
+    width: 100%;
+    margin-bottom: 10px; /* Separate buttons */
+  }
+}
+
+
+
+
+/* Hide on larger screens */
+.travel-advice-container {
+  display: none; /* Hide by default */
+}
+
+/* Show only on smaller screens */
+@media (max-width: 768px) {
+  .travel-advice-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .travel-advice-text {
+    margin-bottom: 15px; /* Add space between the text and button */
+    font-size: 1.2rem; /* Optional: adjust font size */
+  }
+
+  .book-now-btn {
+    width: auto; /* Adjust button width if needed */
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .page-title {
   padding: 20px;
@@ -209,142 +289,9 @@ li a {
 }
 
 li:hover {
-  border-bottom: 2px #232c57 solid;
+  border-bottom: 2px #9e070c solid;
 }
 
-.cards {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 5px;
-  width: 60%;
-  background-color: #fff;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.cards:hover {
-  box-shadow: 0px 8px 16px #1f2152;
-}
-
-
-.dashboard-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px;
-}
-
-.balance-block {
-  background-color: #f7f7f7;
-  padding: 20px;
-  margin: 20px;
-  width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-.stake-block {
-  background-color: #f7f7f7;
-  padding: 20px;
-  margin: 20px;
-  width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-.staking-input{
-  border-radius: 10px;
-  height: 50px;
-  border: none;
-  background-color: #e8e8e8;
-  margin-bottom: 10px;
-}
-
-.staking-btn {
-  background-color: #232c57;
-  color: white;
-  margin: 10px;
-  border-radius: 10px;
-  height: 40px;
-  width: 100%;
-}
-
-.primary-color {
-  color: #232c57;
-}
-
-.input-done {
-  color: blue; /* Change the color to your desired color */
-}
-
-
-.submit-btn {
-  background: #232c57;
-   color: white;
-   padding: 5px;
-   width: 100px;
-  }
-
-/* the amount button to automatically fill the amount on the input */
-
-.mr-2 {
-  margin: 5px;
-  border: none;
-  background-color: rgb(234, 234, 234);
-  border-radius: 5px;
-  height: 40px;
-  width: 100px;
-}
-
-.ml-2 {
-  margin: 5px;
-  border: none;
-  background-color: rgb(234, 234, 234);
-  border-radius: 5px;
-  height: 40px;
-  width: 50px;
-}
-
-.profit-estimate{
-  border-left: 2px solid rgb(234, 234, 234);
-  padding: 5px;
-  width: 200px;
-  color: #232c57;
-}
-
-h3 {
-  margin-top: 0;
-}
-
-.referal-container{
-  padding: 30px;
-}
-
-@media (max-width: 768px) {
-  .balance-block, .stake-block {
-    width: 100%;
-  }
-}
-
-/* nav bar custom style */
-
-.left-div {
-  background: url('./images/ukstudent.png') no-repeat center center;
-  background-size: cover;
-  min-height: 400px;
-}
-
-.form-control {
-  border: none;
-  border-bottom: 2px solid #ccc;
-  border-radius: 0;
-}
-
-.form-control:focus {
-  border-bottom: 2px solid #007bff;
-  box-shadow: none;
-}
 
 .course-image {
   width: 310px; /* Adjust according to your design */
@@ -419,6 +366,8 @@ h3 {
     align-items: center;
   }
 
+  
+
   .navbar-nav .nav-item {
     width: 100%;
     text-align: center;
@@ -427,4 +376,294 @@ h3 {
   .navbar-nav .nav-item .nav-link {
     width: 100%;
   }
+}
+
+
+
+/* explore couresel section *//* explore carousel section */
+
+
+.carousel-container {
+  text-align: center;
+  margin: 40px auto;
+  width: 80%;
+}
+
+
+.carousel-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-subtitle {
+  font-size: 1.1rem;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+}
+
+.carousel-control {
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  color: black;
+  padding: 0 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-cards {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  flex: 1;
+  justify-content: center;
+}
+
+.carousel-card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-caption-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: black;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+  .carousel-cards {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .carousel-card {
+    width: 100%; /* Full width for stacking */
+    margin-bottom: 20px; /* Add margin between cards */
+  }
+
+  /* Modify buttons to fit better on small screens */
+  .carousel-control {
+    font-size: 1.2rem; /* Reduce the button size */
+    padding: 10px; /* Add padding for a better touch target */
+  }
+  
+  .carousel-cards {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .carousel-card {
+    width: 100%; /* Full width for stacking */
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-container {
+    width: 95%;
+  }
+
+  .carousel-title {
+    font-size: 1.25rem;
+  }
+  
+  .carousel-subtitle {
+    font-size: 0.9rem;
+  }
+
+  
+}
+
+
+/* study abroad couresel section *//* explore carousel section */
+.studyabroad-background-container {
+  height: 650px;
+}
+
+.study-carousel-container {
+  position: relative;
+  text-align: center;
+  margin: 40px auto;
+  width: 100%;
+  height: 500px; /* Increase height as needed */
+  background-image: url('./images/studyabroad-bg.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.study-carousel-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20px); /* Center horizontally and move down */
+}
+
+.study-carousel-container .carousel-card {
+  width: 250px;
+  background-color: white;
+  text-align: left;
+  padding: 15px;
+}
+
+.studyabroad-carousel-card {
+  border: 0.5px solid #0056b3;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.study-carousel-container .carousel-card img {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.study-carousel-container .carousel-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.study-carousel-container .carousel-card p {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.learn-more-link {
+  color: #000000;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+.learn-more-link svg {
+  margin-left: 5px;
+}
+
+.studyabroad-carousel-title {
+  color: white;
+  margin-top: 40px;
+}
+
+.studyabroad-subtitle {
+  color: white;
+  width: 40%;
+}
+
+
+/* testimonial style area */
+
+.testimonials-carousel-container{
+  margin-bottom: 50px;
+}
+
+.testimonials-carousel-card {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.testimonial-subtitle{
+  font-size: 0.8rem;
+  width: 30%;
+  margin-top: 30px;
+}
+
+.testimonials-carousel-card h2{
+font-size: 1rem;
+margin-top: 10px;
+}
+
+.testimonials-description{
+  font-size: 0.8rem;
+}
+
+/* sunscription banner style section */
+
+.subscription-banner {
+  background-image: url('./images/subscriptionbackground.png'); ;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  color: #fff;
+  text-align: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.footer-image {
+  background-color: #0056b3;
+  border-radius: 10px;
+  width: 60%;
+}
+
+.footer-text {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  width: 70%;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top div {
+  background-color: #0056b3;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white; 
 }

@@ -2,9 +2,12 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom';
 import "./App.css";
 import NavBar from "./components/NavBar";
-import MyCarousel from "./components/MyCarousel";
-import CoreValue from "./components/CoreValue";
-import Cards from "./components/Cards";
+import MyCarousel from "./components/carousel/MyCarousel.jsx";
+import ExploreCarouselComponent from "./components/carousel/ExploreCarousel.jsx";
+import FlightBookingBanner from "./components/FlightBooking.jsx";
+import TourPartners from "./components/TourPartner.jsx";
+import Testimonials from "./components/Testimonials.jsx";
+import SubscriptionBanner from "./components/SubscriptionBanner.jsx";
 import Footer from "./components/Footer";
 import AboutUs from "./pages/AboutUs.js";
 import Dashboard from "./pages/Dashboard";
@@ -15,9 +18,7 @@ import EmailVerificationSuccess from "./components/EmailVerificationSuccess";
 import Destination from "./pages/Destination";
 import StudyAbroad from "./pages/StudyAbroad";
 import FindACourse from "./pages/FindACourse";
-import StudyForm from "./components/ContactForm.jsx";
-import Testimonials from "./components/Testimonials.jsx";
-import LeadingUniversities from "./components/LeadingUniversities.jsx";
+import StudyAbroadCarousel from "./components/carousel/StudyAbroad.jsx"
 import FindUs from "./pages/FindUs.js";
 import Events from "./pages/Events.js";
 import RegisterEvent from "./pages/RegisterEvent.js";
@@ -26,6 +27,7 @@ import StudentLoan from "./pages/StudentLoan.js";
 import GroupTravelPage from "./pages/GroupTravelPage.js";
 import ScrollToTop from "./components/scrollToTop.jsx";
 import AdminPage from "./pages/AdminPage.js";
+import ScrollToTopIcon from "./components/ScrollTOTopIcon.jsx";
 
 
 
@@ -39,15 +41,17 @@ function App() {
     <div>
       <NavBar />
       <ScrollToTop />
+      <ScrollToTopIcon />
       <Switch>
         <Route exact path="/">
           <div>
            <MyCarousel />
-           <CoreValue />
-           <Cards />
-           <StudyForm />
+           <ExploreCarouselComponent />
+           <StudyAbroadCarousel />
+           <FlightBookingBanner />
+           <TourPartners />
            <Testimonials />
-           <LeadingUniversities />
+           <SubscriptionBanner />
           
           </div>
         </Route>
