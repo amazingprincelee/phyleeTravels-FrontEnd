@@ -19,7 +19,7 @@ function MyCarousel() {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={slide1} alt="slide-1" width="100%" height={860}/>
+          <img src={slide1} alt="slide-1" width="100%" height={600}/>
           <div className="container">
             <div className="carousel-caption custom-caption">
               <h1>Make in <br/> your journey.</h1>

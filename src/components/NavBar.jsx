@@ -15,20 +15,7 @@ function NavBar() {
     setIsSearchOpen(!isSearchOpen);
   };
 
-  // Sample package items (you can replace or add more)
-  const packages = [
-    "Package 1",
-    "Package 2",
-    "Package 3",
-    "Package 4",
-    "Package 5",
-    "Package 6",
-    "Package 7",
-    "Package 8",
-    "Package 9",
-    "Package 10",
-    // Add more packages as needed
-  ];
+ 
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark fixed-top" style={{ backgroundColor: "rgba(0, 0, 126, 1)" }}>
@@ -59,41 +46,17 @@ function NavBar() {
                 Get in Touch
               </Link>
               <ul className="dropdown-menu" aria-labelledby="destinationDropdown">
-                <li><Link to="/destination/1" className="dropdown-item">About us</Link></li>
-                <li><Link to="/destination/2" className="dropdown-item">Contact us</Link></li>
+                <li><Link to="/AboutUs" className="dropdown-item">About us</Link></li>
+                <li><Link to="/contactUs" className="dropdown-item">Contact us</Link></li>
               </ul>
             </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle text-light"
-                id="packageDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style={{ fontSize: "16px", margin: "10px" }}
-              >
-                Package
+
+            <li className="nav-item">
+              <Link to="/packages" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
+                Packages
               </Link>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="packageDropdown"
-                style={{
-                  width: "300px", // Set a width for the dropdown
-                  padding: "10px",
-                }}
-              >
-                <div className="row">
-                  {packages.map((pkg, index) => (
-                    <div key={index} className="col-6" style={{ marginBottom: "10px" }}>
-                      <Link to={`/package/${index + 1}`} className="dropdown-item">
-                        {pkg}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </ul>
             </li>
+            
             <li className="nav-item dropdown">
               <Link
                 to="#"
@@ -107,8 +70,8 @@ function NavBar() {
                 Destination
               </Link>
               <ul className="dropdown-menu" aria-labelledby="destinationDropdown">
-                <li><Link to="/destination/1" className="dropdown-item">Destination 1</Link></li>
-                <li><Link to="/destination/2" className="dropdown-item">Destination 2</Link></li>
+                <li><Link to="/destination/1" className="dropdown-item">Study Destinations</Link></li>
+                <li><Link to="/destination/2" className="dropdown-item">Vacation Destinations</Link></li>
               </ul>
             </li>
             <li className="nav-item">

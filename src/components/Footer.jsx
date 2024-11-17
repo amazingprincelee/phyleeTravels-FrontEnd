@@ -6,7 +6,7 @@ import logo from "../images/logo.png";
 const Footer = () => {
   return (
     <footer className="mt-5 bg-light d-flex flex-column" style={{ minHeight: '300px' }}>
-      <Container className="flex-grow-1">
+      <Container className="p-5 flex-grow-1">
         <Row>
           <Col md={3}>
             <div className="footer-image">
@@ -30,7 +30,7 @@ const Footer = () => {
             <h5>Services</h5>
             <ul className="list-unstyled">
               <li>Student Loan</li>
-              <li>Flight Ticket</li>
+              <li>Book flight</li>
               <li>Study Abroad</li>
               <li>Consultation</li>
             </ul>

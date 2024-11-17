@@ -9,7 +9,7 @@ import TourPartners from "./components/TourPartner.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import SubscriptionBanner from "./components/SubscriptionBanner.jsx";
 import Footer from "./components/Footer";
-import AboutUs from "./pages/AboutUs.js";
+import AboutUs from "./pages/AboutUs.jsx";
 import Dashboard from "./pages/Dashboard";
 import RegistrationForm from "./components/RegistrationForm";
 import LoginForm from "./components/LoginForm";
@@ -28,6 +28,9 @@ import GroupTravelPage from "./pages/GroupTravelPage.js";
 import ScrollToTop from "./components/scrollToTop.jsx";
 import AdminPage from "./pages/AdminPage.js";
 import ScrollToTopIcon from "./components/ScrollTOTopIcon.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
+import Packages from "./pages/Packages.jsx";
+import Blog from "./pages/Blog.jsx";
 
 
 
@@ -64,6 +67,15 @@ function App() {
         <Route path="/AboutUs">
           <AboutUs />
         </Route>
+        <Route path="/ContactUs">
+          <ContactUs />
+        </Route>
+        <Route path="/packages">
+          <Packages />
+        </Route>
+        <Route path="/blog">
+          <Blog />
+        </Route>
         <Route path="/Registration">
           <RegistrationForm />
         </Route>
@@ -76,7 +88,6 @@ function App() {
         <Route path="/verificationSuccess">
           <EmailVerificationSuccess />
         </Route>
-        
         
         
         

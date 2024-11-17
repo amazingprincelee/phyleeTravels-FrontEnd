@@ -94,10 +94,20 @@ form button {
 
 
 header {
-  background-image: url("./images/headerbg.jpeg");
-   height: 300px;
-   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/aboutus.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 600px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+  color: white;
 }
+
 
 .header-action {
   border-radius: 20px;
@@ -518,7 +528,7 @@ li:hover {
   text-align: center;
   margin: 40px auto;
   width: 100%;
-  height: 500px; /* Increase height as needed */
+  height: 500px; 
   background-image: url('./images/studyabroad-bg.png'); 
   background-size: cover;
   background-position: center;
@@ -667,3 +677,65 @@ margin-top: 10px;
   justify-content: center;
   color: white; 
 }
+
+
+/* about us area */
+
+.stats-section {
+  background-image: url("./images/stats-sections.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+}
+
+
+.contact-us-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/contact-us.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 600px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+  color: white;
+}
+
+
+.packages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/packages.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 600px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+  color: white;
+}
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/blog.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 600px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+  color: white;
+}
+
