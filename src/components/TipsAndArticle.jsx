@@ -1,4 +1,5 @@
 import React from "react";
+import tipsAndArticleImage from "../images/blog/tiparticle.png"
 
 const TipsArticles = () => {
   const articles = [
@@ -24,7 +25,7 @@ const TipsArticles = () => {
       title: "Travel Stories For Now and the Future",
       description:
         "Discover inspiring travel stories that capture the essence of adventure, exploration, and cultural connections.",
-      image: "https://via.placeholder.com/400x250", // Replace with actual image
+      image: tipsAndArticleImage, 
       buttonText: "Read More",
     },
   ];
@@ -71,7 +72,7 @@ const TipsArticles = () => {
               src={articles[2].image}
               alt={articles[2].title}
               className="w-100 rounded-top"
-              style={{ height: "250px", objectFit: "cover" }}
+              style={{ height: "592px", objectFit: "cover" }}
             />
             <div className="p-4">
               <small className="text-muted">{articles[2].tag}</small>

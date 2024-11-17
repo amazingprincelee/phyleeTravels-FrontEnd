@@ -39,23 +39,17 @@ const LoginForm = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="row shadow w-100" style={{ maxWidth: '800px' }}>
-        <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-center p-4 bg-light">
+      <div className="shadow row w-100" style={{ maxWidth: '800px' }}>
+        <div className="p-4 col-lg-6 col-md-12 d-flex flex-column justify-content-center bg-light">
           <h3 className="text-center">Welcome to Phylee Journey</h3>
           <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
         </div>
-        <div className="col-lg-6 col-md-12 p-4" style={{ background: "#960606" }}>
-          {error && <p className="text-danger bg-white">{error}</p>}
-          <p className="text-center mt-3 text-white">
-            Don't have an account?{' '}
-            <button className="btn btn-light" onClick={onRegisterClick}>
-              Register
-            </button>
-          </p>
-          <h2 className="text-center mb-4 text-white">Sign in</h2>
+        <div className="p-4 col-lg-6 col-md-12" style={{ background: "#960606" }}>
+          {error && <p className="bg-white text-danger">{error}</p>}
+          <h2 className="mb-4 text-center text-white">Sign in</h2>
           <form onSubmit={handleLogin}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label text-white">Email</label>
+              <label htmlFor="email" className="text-white form-label">Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -67,7 +61,7 @@ const LoginForm = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label text-white">Password</label>
+              <label htmlFor="password" className="text-white form-label">Password</label>
               <input
                 type="password"
                 className="form-control"

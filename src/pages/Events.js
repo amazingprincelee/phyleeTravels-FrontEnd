@@ -9,7 +9,7 @@ function Events() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch('https://phylee-75a6aa507dc5.herokuapp.com/api/events/all_events')
+    fetch('https://phyleetravels-backend.onrender.com/api/events/all_events')
       .then(response => response.json())
       .then(data => {
         setEvents(data);
@@ -29,17 +29,17 @@ function Events() {
   };
 
   return (
-    <div className="container-fluid p-0">
+    <div className="p-0 container-fluid">
       <header className="hero-section">
         <div className="container py-5 text-center">
-          <h1 className="display-4 text-white">Events</h1>
-          <p className="lead text-white">Explore upcoming events and register to join us for an amazing experience.</p>
+          <h1 className="text-white display-4">Events</h1>
+          <p className="text-white lead">Explore upcoming events and register to join us for an amazing experience.</p>
         </div>
       </header>
 
       <div className="container">
         {loading ? (
-          <div className="d-flex justify-content-center mb-5">
+          <div className="mb-5 d-flex justify-content-center">
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
@@ -47,7 +47,7 @@ function Events() {
         ) : (
           <div className="row">
             {events.map(event => (
-              <div className="col-md-4 mb-4" key={event._id}>
+              <div className="mb-4 col-md-4" key={event._id}>
                 <div className="card">
                   <img src={eventPhoto} className="card-img-top" alt={event.eventName} />
                   <div className="card-body">

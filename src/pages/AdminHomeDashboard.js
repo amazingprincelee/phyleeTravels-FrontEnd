@@ -11,7 +11,7 @@ const AdminHomeDashboard = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await axios.get(`https://phylee-75a6aa507dc5.herokuapp.com/api/user/profile/${userId}`, {
+                const response = await axios.get(`https://phyleetravels-backend.onrender.com/api/user/profile/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -29,9 +29,9 @@ const AdminHomeDashboard = () => {
             <h1>Welcome to Admin Area</h1>
             <div className="row">
                 <div className="col-md-4">
-                    <div className="card text-center">
+                    <div className="text-center card">
                         <div className="card-body">
-                            <FaUser className="icon mb-2 text-danger" />
+                            <FaUser className="mb-2 icon text-danger" />
                             <h2 className="card-title">Users</h2>
                             <p className="card-text">98</p>
                             <Link className="btn btn-danger" to="/dashboard/profile">
@@ -42,9 +42,9 @@ const AdminHomeDashboard = () => {
                 </div>
 
                 <div className="col-md-4">
-                    <div className="card text-center">
+                    <div className="text-center card">
                         <div className="card-body">
-                            <FaCalendarCheck className="icon mb-2 text-danger" />
+                            <FaCalendarCheck className="mb-2 icon text-danger" />
                             <h2 className="card-title">Application</h2>
                             <p className="card-text">100 Applied</p>
                             <Link to="/dashboard/saved-items" className="btn btn-danger">
@@ -55,9 +55,9 @@ const AdminHomeDashboard = () => {
                 </div>
 
                 <div className="col-md-4">
-                    <div className="card text-center">
+                    <div className="text-center card">
                         <div className="card-body">
-                            <FaTags className="icon mb-2 text-danger" />
+                            <FaTags className="mb-2 icon text-danger" />
                             <h2 className="card-title">Offers</h2>
                             <p className="card-text">50 offers Given</p>
                             <Link to="/dashboard/offers" className="btn btn-danger">

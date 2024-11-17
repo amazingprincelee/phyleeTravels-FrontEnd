@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`https://phylee-75a6aa507dc5.herokuapp.com/api/user/profile/${userId}`, {
+        const response = await axios.get(`https://phyleetravels-backend.onrender.com/api/user/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

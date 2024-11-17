@@ -37,7 +37,7 @@ const RegistrationForm = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/register', registrationData);
+      const response = await axios.post('https://phyleetravels-backend.onrender.com/api/auth/register', registrationData);
       if (response.status === 200) {
         const { userId, email } = response.data;
         setUserData({ userId, email });
@@ -57,39 +57,39 @@ const RegistrationForm = () => {
         <VerificationForm userId={userData.userId} email={userData.email} />
       ) : (
         <div className="container d-flex justify-content-center align-items-center min-vh-100">
-          <div className="row shadow w-100" style={{ maxWidth: '800px' }}>
-            <div className="col-md-6 d-flex flex-column justify-content-center p-4 bg-light">
+          <div className="shadow row w-100" style={{ maxWidth: '800px' }}>
+            <div className="p-4 col-md-6 d-flex flex-column justify-content-center bg-light">
               <h3 className="text-center">Welcome to Phylee Journey</h3>
               <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
               
             </div>
-            <div className="col-md-6 p-4" style={{ background: "#960606" }}>
-              <h2 className="text-center mb-4 text-white">Register</h2>
-              <p className="text-center mt-3 text-white">Already have an account? <button className="btn btn-light" onClick={onLoginClick}>Login</button></p>
+            <div className="p-4 col-md-6" style={{ background: "#960606" }}>
+              <h2 className="mb-4 text-center text-white">Register</h2>
+              <p className="mt-3 text-center text-white">Already have an account? <button className="btn btn-light" onClick={onLoginClick}>Login</button></p>
               <form onSubmit={handleRegistration}>
                 <div className="mb-3">
-                  <label htmlFor="firstName" className="form-label text-white">First Name</label>
+                  <label htmlFor="firstName" className="text-white form-label">First Name</label>
                   <input type="text" className="form-control" id="firstName" name="firstName" value={registrationData.firstName} onChange={handleInputChange} required />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="lastName" className="form-label text-white">Last Name</label>
+                  <label htmlFor="lastName" className="text-white form-label">Last Name</label>
                   <input type="text" className="form-control" id="lastName" name="lastName" value={registrationData.lastName} onChange={handleInputChange} required />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label text-white">Email</label>
+                  <label htmlFor="email" className="text-white form-label">Email</label>
                   <input type="email" className="form-control" id="email" name="email" value={registrationData.email} onChange={handleInputChange} required />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label text-white">Password</label>
+                  <label htmlFor="password" className="text-white form-label">Password</label>
                   <input type="password" className="form-control" id="password" name="password" value={registrationData.password} onChange={handleInputChange} required />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="confirmPassword" className="form-label text-white">Confirm Password</label>
+                  <label htmlFor="confirmPassword" className="text-white form-label">Confirm Password</label>
                   <input type="password" className="form-control" id="confirmPassword" name="confirmPassword" value={registrationData.confirmPassword} onChange={handleInputChange} required />
                   {passwordMatchError && <p className="text-danger">Passwords do not match</p>}
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="phone" className="form-label text-white">Phone Number</label>
+                  <label htmlFor="phone" className="text-white form-label">Phone Number</label>
                   <input type="tel" className="form-control" id="phone" name="phone" value={registrationData.phone} onChange={handleInputChange} required />
                 </div>
                 <button type="submit" className="custom-btn2 w-100" disabled={loading}>

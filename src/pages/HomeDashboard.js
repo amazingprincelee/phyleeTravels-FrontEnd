@@ -22,7 +22,7 @@ const HomeDashboard = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`https://phylee-75a6aa507dc5.herokuapp.com/api/user/profile/${userId}`, {
+        const response = await axios.get(`https://phyleetravels-backend.onrender.com/api/user/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -54,9 +54,9 @@ const HomeDashboard = () => {
       <h1>Hi {firstName}</h1>
       <div className="row">
         <div className="col-md-4">
-          <div className="card text-center">
+          <div className="text-center card">
             <div className="card-body">
-              <FaUser className="icon mb-2 text-danger" />
+              <FaUser className="mb-2 icon text-danger" />
               <h2 className="card-title">Profile</h2>
               <p className="card-text">75% completed</p>
               <Link className="btn btn-danger" to="/dashboard/profile">
@@ -67,9 +67,9 @@ const HomeDashboard = () => {
         </div>
 
         <div className="col-md-4">
-          <div className="card text-center">
+          <div className="text-center card">
             <div className="card-body">
-              <FaList className="icon mb-2 text-danger" />
+              <FaList className="mb-2 icon text-danger" />
               <h2 className="card-title">Shortlists</h2>
               <p className="card-text">5 courses</p>
               <Link to="/dashboard/saved-items" className="btn btn-danger">
@@ -80,9 +80,9 @@ const HomeDashboard = () => {
         </div>
 
         <div className="col-md-4">
-          <div className="card text-center">
+          <div className="text-center card">
             <div className="card-body">
-              <FaRocket className="icon mb-2 text-danger" />
+              <FaRocket className="mb-2 icon text-danger" />
               <h2 className="card-title">My Offer</h2>
               <p className="card-text">3 offers received</p>
               <Link to="/dashboard/offers" className="btn btn-danger">
@@ -93,9 +93,9 @@ const HomeDashboard = () => {
         </div>
       </div>
 
-      <div className="row mt-4">
+      <div className="mt-4 row">
         <div className="col-md-6">
-          <div className="d-flex align-items-center p-3 bg-light rounded shadow-sm">
+          <div className="p-3 rounded shadow-sm d-flex align-items-center bg-light">
             <FaCheck className="me-3" style={{ fontSize: '50px' }} />
             <div className="flex-grow-1">
               <h6 className="mb-0">Start your educational or travel journey today</h6>
@@ -105,7 +105,7 @@ const HomeDashboard = () => {
         </div>
         <div className="col-md-6">
           {!showOptions && (
-            <button className="custom-btn w-100 mt-4 text-light" onClick={handleGetStartedClick}>
+            <button className="mt-4 custom-btn w-100 text-light" onClick={handleGetStartedClick}>
               Get Started
             </button>
           )}
@@ -116,25 +116,25 @@ const HomeDashboard = () => {
       {showOptions && (
         <div className="mt-4">
           <h2>Choose a Category:</h2>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('undergraduate')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('undergraduate')}>
             Undergraduate Student
           </button>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('postgraduate')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('postgraduate')}>
             Postgraduate Student
           </button>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('southAfricaTourist')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('southAfricaTourist')}>
             South Africa Tourist
           </button>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('schengenTourist')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('schengenTourist')}>
             Schengen Tourist
           </button>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('eastAfricaVisa')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('eastAfricaVisa')}>
             East Africa Visa
           </button>
-          <button className="services-btn text-danger me-3 m-2" onClick={() => handleOptionSelect('moroccoVisa')}>
+          <button className="m-2 services-btn text-danger me-3" onClick={() => handleOptionSelect('moroccoVisa')}>
             Morocco Visa
           </button>
-          <button className="services-btn text-danger m-2" onClick={() => handleOptionSelect('turkeyTourist')}>
+          <button className="m-2 services-btn text-danger" onClick={() => handleOptionSelect('turkeyTourist')}>
             Turkey Tourist
           </button>
 

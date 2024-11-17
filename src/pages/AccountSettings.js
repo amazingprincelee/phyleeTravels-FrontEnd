@@ -15,7 +15,7 @@ const AccountSettings = () => {
   const handleUpdateProfile = async () => {
     try {
       const response = await axios.put(
-        `https://phylee-75a6aa507dc5.herokuapp.com/api/user/updateProfile/${userId}`,
+        `https://phyleetravels-backend.onrender.com/api/user/updateProfile/${userId}`,
         { phone },
         {
           headers: {

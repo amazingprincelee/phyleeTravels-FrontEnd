@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/logout', {
+      const response = await axios.get('https://phyleetravels-backend.onrender.com/api/auth/logout', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -38,7 +38,7 @@ const Dashboard = () => {
       <div className="row">
         {/* Sidebar */}
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-          <div className="position-sticky pt-3">
+          <div className="pt-3 position-sticky">
             <ul className="nav flex-column">
               <li className="nav-item">
                 <Link className="nav-link active" to={`${url}/home-dashboard`}>
@@ -65,8 +65,8 @@ const Dashboard = () => {
         </nav>
 
         {/* Main Content */}
-        <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
-          <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+        <main className="mt-3 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div className="flex-wrap pt-3 pb-2 mb-3 d-flex justify-content-between flex-md-nowrap align-items-center border-bottom"></div>
           <Switch>
             <Route exact path={path}>
               <HomeDashboard />

@@ -48,6 +48,7 @@ function NavBar() {
               <ul className="dropdown-menu" aria-labelledby="destinationDropdown">
                 <li><Link to="/AboutUs" className="dropdown-item">About us</Link></li>
                 <li><Link to="/contactUs" className="dropdown-item">Contact us</Link></li>
+                <li><Link to="/Events" className="dropdown-item">Events</Link></li>
               </ul>
             </li>
 

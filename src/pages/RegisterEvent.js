@@ -55,7 +55,7 @@ function RegisterEvent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://phylee-75a6aa507dc5.herokuapp.com/api/events/register_for_event', {
+      const response = await fetch('https://phyleetravels-backend.onrender.com/api/events/register_for_event', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

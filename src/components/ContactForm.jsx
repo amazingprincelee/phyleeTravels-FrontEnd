@@ -97,7 +97,7 @@ function ContactForm() {
                 <FaEnvelope className="me-2" /> info@traveller.com
               </p>
               <p>
-                <FaMapMarkerAlt className="me-2" /> Nkpolu-Oroworukwo. PH
+                <FaMapMarkerAlt className="me-2" /> 10 UST Main Gate Rivers State, PH
               </p>
             </div>
             {/* Lagos Office */}
@@ -110,7 +110,7 @@ function ContactForm() {
                 <FaEnvelope className="me-2" /> info@traveller.com
               </p>
               <p>
-                <FaMapMarkerAlt className="me-2" /> Nkpolu-Oroworukwo. PH
+                <FaMapMarkerAlt className="me-2" /> 10 UST Main Gate Rivers State, PH
               </p>
             </div>
             {/* Abuja Office */}
@@ -123,7 +123,7 @@ function ContactForm() {
                 <FaEnvelope className="me-2" /> info@traveller.com
               </p>
               <p>
-                <FaMapMarkerAlt className="me-2" /> Nkpolu-Oroworukwo. PH
+                <FaMapMarkerAlt className="me-2" /> 10 UST Main Gate Rivers State, PH
               </p>
             </div>
             {/* Calabar Office */}
@@ -136,7 +136,7 @@ function ContactForm() {
                 <FaEnvelope className="me-2" /> info@traveller.com
               </p>
               <p>
-                <FaMapMarkerAlt className="me-2" /> Nkpolu-Oroworukwo. PH
+                <FaMapMarkerAlt className="me-2" /> 10 UST Main Gate Rivers State, PH
               </p>
             </div>
           </div>

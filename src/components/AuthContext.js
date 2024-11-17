@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthentication = async () => {
     try {
-      const response = await axios.get('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/check-auth');
+      const response = await axios.get('https://phyleetravels-backend.onrender.com/api/auth/check-auth');
       setIsLoggedIn(response.data.loggedIn);
       if (response.data.loggedIn) {
         setUser(response.data.user);
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (loginData) => {
     try {
-      const response = await axios.post('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/login', loginData);
+      const response = await axios.post('https://phyleetravels-backend.onrender.com/api/auth/login', loginData);
       if (response.status === 201) {
         localStorage.setItem('userId', response.data.user.id);
         localStorage.setItem('token', response.data.token);
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      const response = await axios.get('https://phylee-75a6aa507dc5.herokuapp.com/api/auth/logout');
+      const response = await axios.get('https://phyleetravels-backend.onrender.com/api/auth/logout');
       if (response.status === 200) {
         setIsLoggedIn(false);
         setUser(null);

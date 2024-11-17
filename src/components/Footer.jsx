@@ -22,7 +22,7 @@ const Footer = () => {
           </Col>
           <Col md={3}>
             <h5>Contact Information</h5>
-            <p>Nkpolu-Oroworukwo. PH</p>
+            <p>10 UST Main Gate Rivers State Port Harcourt</p>
             <p>+234 703 152 2572</p>
             <p>info@phyleetravels.com</p>
           </Col>

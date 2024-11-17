@@ -27,7 +27,7 @@ const VerificationForm = ({ userId, email }) => {
     setLoading(true);
   
     try {
-      const response = await axios.post(`https://phylee-75a6aa507dc5.herokuapp.com/api/auth/verify/${userId}`, { verifyCode: verificationCode });
+      const response = await axios.post(`https://phyleetravels-backend.onrender.com/api/auth/verify/${userId}`, { verifyCode: verificationCode });
   
       if (response.status === 201) {
         // Verification successful, redirect to successpage or any other page
@@ -45,9 +45,9 @@ const VerificationForm = ({ userId, email }) => {
 
   return (
     <div className="container mt-5 mb-5">
-      <div className="card mx-auto" style={{ maxWidth: '400px' }}>
+      <div className="mx-auto card" style={{ maxWidth: '400px' }}>
         <div className="card-body">
-          <h2 className="card-title text-center">Verification</h2>
+          <h2 className="text-center card-title">Verification</h2>
           <p className="text-center text-info">{verificationMessage}</p>
           <form onSubmit={handleSubmit}>
             <input
@@ -57,7 +57,7 @@ const VerificationForm = ({ userId, email }) => {
               onChange={handleInputChange}
               maxLength={6}
               autoFocus
-              className="form-control mb-3"
+              className="mb-3 form-control"
               placeholder="Verification Code"
             />
             <button type="submit" className="custom-btn2" disabled={loading}>
@@ -70,7 +70,7 @@ const VerificationForm = ({ userId, email }) => {
               )}
             </button>
           </form>
-          {error && <p className="text-danger text-center mt-3">{error}</p>}
+          {error && <p className="mt-3 text-center text-danger">{error}</p>}
         </div>
       </div>
     </div>
