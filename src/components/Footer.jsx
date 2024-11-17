@@ -65,7 +65,7 @@ const Footer = () => {
       </Container>
       <div className="p-3 mt-auto bg-black copyright-container d-flex justify-content-center align-items-center">
   <p className="m-0 text-center text-white" style={{ fontSize: '12px' }}>
-    Copyright &copy; 2024. All rights reserved (Website Developed: CollaboGig Innovation)
+    Copyright &copy; 2024. All rights reserved (Website Developed: <a className="text-white" href="https://collabogig.com">CollaboGig Innovation</a>)
   </p>
 </div>
 

@@ -48,7 +48,7 @@ function Testinomials() {
   };
 
   return (
-    <div className="testimonials-carousel-container">
+    <div className="container testimonials-carousel-container">
       <div className="container">
         <p
           className="text-secondary"

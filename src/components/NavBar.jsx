@@ -80,7 +80,7 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/signin" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
+              <Link to="/Login" className="nav-link text-light" style={{ fontSize: "16px", margin: "10px" }}>
                 Sign in
               </Link>
             </li>
