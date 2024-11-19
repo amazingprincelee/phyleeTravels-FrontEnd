@@ -36,9 +36,9 @@ function FounderSection() {
 
           {/* Quote Text */}
           <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#333" }}>
-            At Pryhze Travel & Tours, we believe that travel should be enriching
-            and effortless. Our mission is to create journeys that inspire,
-            connecting people to the world in meaningful ways.
+            At Phylee Travel and Tours, we believe that traveling should be enriching
+            and effortless. Our mission is to create journeys that inspire and
+            connect people to the world in meaningful ways.
           </p>
           <p
             style={{
@@ -59,7 +59,7 @@ function FounderSection() {
               Hope Dickson
             </h3>
             <p style={{ margin: 0, fontSize: "16px", color: "#555" }}>
-              Founder, Pryhze Travel & Tours
+              Founder, Phylee Travel and Tours
             </p>
           </div>
         </div>

@@ -19,11 +19,11 @@ function MyCarousel() {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={slide1} alt="slide-1" width="100%" height={600}/>
+          <img src={slide1} alt="slide-1" width="100%" height={860}/>
           <div className="container">
             <div className="carousel-caption custom-caption">
               <h1>Make in <br/> your journey.</h1>
-              <p className="opacity-75">We specialize in providing top-notch traveling opportunities and services, catering to a diverse range of needs.</p>
+              <p className="opacity-75 desc">We specialize in providing top-notch traveling opportunities and services, catering to a diverse range of needs.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" style={{fontSize: "0.7rem"}} >Need Travel Advices?</button>
                 <Link className="m-1 btn btn-sm btn-dark rounded-pill" to="/Booking">Schedule appointment</Link>
@@ -38,7 +38,7 @@ function MyCarousel() {
           <div className="container">
           <div className="carousel-caption custom-caption">
               <h1>Discover Amazing <br/> Destinations</h1>
-              <p className="opacity-75">Explore breathtaking places and create <br/> unforgettable memories with us.</p>
+              <p className="opacity-75 desc">Explore breathtaking places and create <br/> unforgettable memories with us.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
                 <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/Booking">Schedule appointment</Link>
@@ -52,7 +52,7 @@ function MyCarousel() {
           <div className="container">
           <div className="carousel-caption custom-caption">
               <h1>Your Next <br/> Adventure Awaits.</h1>
-              <p className="opacity-75">Get ready for a thrilling journey to <br/> the world's most stunning destinations.</p>
+              <p className="opacity-75 desc">Get ready for a thrilling journey to <br/> the world's most stunning destinations.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
                 <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/Booking">Schedule appointment</Link>
@@ -66,7 +66,7 @@ function MyCarousel() {
           <div className="container">
           <div className="carousel-caption custom-caption">
               <h1>Plan the <br/> Perfect Getaway.</h1>
-              <p className="opacity-75">Let us handle the details, so you <br/>can relax and enjoy the journey..</p>
+              <p className="opacity-75 desc">Let us handle the details, so you <br/>can relax and enjoy the journey..</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
                 <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/Booking">Schedule appointment</Link>
@@ -80,7 +80,7 @@ function MyCarousel() {
           <div className="container">
           <div className="carousel-caption custom-caption">
               <h1>Explore <br/>Popular Places.</h1>
-              <p className="opacity-75">Let us handle the details, so you <br/>can relax and enjoy the journey.</p>
+              <p className="opacity-75 desc">Let us handle the details, so you <br/>can relax and enjoy the journey.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
                 <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/Booking">Schedule appointment</Link>

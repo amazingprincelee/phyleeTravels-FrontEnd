@@ -23,7 +23,7 @@ const Footer = () => {
           <Col md={3}>
             <h5>Contact Information</h5>
             <p>10 UST Main Gate Rivers State Port Harcourt</p>
-            <p>+234 703 152 2572</p>
+            <p>+234 911 689 8394</p>
             <p>info@phyleetravels.com</p>
           </Col>
           <Col md={2}>
@@ -47,10 +47,10 @@ const Footer = () => {
           <Col md={2}>
             <h5>Follow Us</h5>
             <div className="">
-              <a href="/#" className=" text-dark">
+              <a href="https://www.facebook.com/phyleetravels" className=" text-dark">
                 <FaFacebookF />
               </a>
-              <a href="/#" className="mx-2 text-dark">
+              <a href="https://www.instagram.com/studyabroadmaestro/" className="mx-2 text-dark">
                 <FaInstagram />
               </a>
               <a href="/#" className="mx-2 text-dark">
