@@ -590,10 +590,19 @@ li:hover {
   margin-top: 40px;
 }
 
-.studyabroad-subtitle {
-  color: white;
-  width: 40%;
+
+
+.carousel-title {
+  font-size: 2rem; /* Adjust as needed */
+  margin-bottom: 1rem;
 }
+
+.studyabroad-subtitle {
+  font-size: 1.2rem; /* Adjust as needed */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
 
 
 /* testimonial style area */

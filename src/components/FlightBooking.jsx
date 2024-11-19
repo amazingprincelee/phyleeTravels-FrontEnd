@@ -21,7 +21,7 @@ function FlightBookingBanner() {
         <h1 className="mb-3 font-weight-bold" style={{ fontSize: "2.5rem" }}>
           Find the Perfect Flight for <br /> Your Next Adventure
         </h1>
-        <Button variant="primary" size="lg">
+        <Button variant="primary border border-light" size="lg">
           Book flight
         </Button>
       </div>

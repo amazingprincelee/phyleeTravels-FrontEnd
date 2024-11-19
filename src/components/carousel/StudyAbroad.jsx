@@ -43,10 +43,14 @@ function ExploreCarouselComponent() {
   return (
     <div className="studyabroad-background-container">
       <div className="study-carousel-container">
-        <div className="text-center d-flex flex-column align-items-center">
-          <h2 className="w-50 carousel-title studyabroad-carousel-title">Study Abroad</h2>
-          <p className="studyabroad-subtitle">Get personalized support and resources for a smooth admission process—start your journey with us today!</p>
-        </div>
+      <div className="container text-center d-flex flex-column align-items-center">
+  <h2 className="carousel-title studyabroad-carousel-title text-wrap text-md-nowrap w-100 w-md-50">
+    Study Abroad
+  </h2>
+  <p className="px-3 studyabroad-subtitle px-md-0">
+    Get personalized support and resources for a smooth admission process—start your journey with us today!
+  </p>
+</div>
 
         <div className="d-flex justify-content-center align-items-center">
           <div className="mb-3 justify-content-between d-flex" style={{ width: '90%' }}>
