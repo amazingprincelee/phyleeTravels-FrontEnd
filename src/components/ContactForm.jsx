@@ -214,7 +214,7 @@ function ContactForm() {
                   required
                 />
                 <label className="form-check-label">
-                  I agree to the <a href="/#">terms and conditions</a>
+                  I agree to the <a href="https://phyleetravels.com/document/terms.pdf">terms and conditions</a>
                 </label>
               </div>
               <div className="d-grid">
