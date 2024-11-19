@@ -82,6 +82,18 @@ const LoginForm = () => {
               )}
             </button>
           </form>
+          <div className="mt-3 text-center">
+            <p className="text-white">
+              Don't have an account?{" "}
+              <button
+                onClick={onRegisterClick}
+                className="p-0 btn btn-link text-decoration-none text-warning"
+                style={{ fontWeight: "bold" }}
+              >
+                Register Here
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </div>

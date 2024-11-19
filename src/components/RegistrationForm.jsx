@@ -56,7 +56,7 @@ const RegistrationForm = () => {
       {userData ? (
         <VerificationForm userId={userData.userId} email={userData.email} />
       ) : (
-        <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <div className="container d-flex justify-content-center align-items-center min-vh-100" style={{marginTop:'150px'}}>
           <div className="shadow row w-100" style={{ maxWidth: '800px' }}>
             <div className="p-4 col-md-6 d-flex flex-column justify-content-center bg-light">
               <h3 className="text-center">Welcome to Phylee Journey</h3>
@@ -65,7 +65,6 @@ const RegistrationForm = () => {
             </div>
             <div className="p-4 col-md-6" style={{ background: "#960606" }}>
               <h2 className="mb-4 text-center text-white">Register</h2>
-              <p className="mt-3 text-center text-white">Already have an account? <button className="btn btn-light" onClick={onLoginClick}>Login</button></p>
               <form onSubmit={handleRegistration}>
                 <div className="mb-3">
                   <label htmlFor="firstName" className="text-white form-label">First Name</label>
@@ -102,6 +101,18 @@ const RegistrationForm = () => {
                   )}
                 </button>
               </form>
+              <div className="mt-3 text-center">
+            <p className="text-white">
+              Already have an account?{" "}
+              <button
+                onClick={onLoginClick}
+                className="p-0 btn btn-link text-decoration-none text-warning"
+                style={{ fontWeight: "bold" }}
+              >
+                Login Here
+              </button>
+            </p>
+          </div>
             </div>
           </div>
         </div>
