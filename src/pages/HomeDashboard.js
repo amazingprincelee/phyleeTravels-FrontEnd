@@ -70,8 +70,8 @@ const HomeDashboard = () => {
           <div className="text-center card">
             <div className="card-body">
               <FaList className="mb-2 icon text-danger" />
-              <h2 className="card-title">Shortlists</h2>
-              <p className="card-text">5 courses</p>
+              <h2 className="card-title">Travel & Tours</h2>
+              <p className="card-text">5 received</p>
               <Link to="/dashboard/saved-items" className="btn btn-danger">
                 View Saved Items
               </Link>
@@ -83,7 +83,7 @@ const HomeDashboard = () => {
           <div className="text-center card">
             <div className="card-body">
               <FaRocket className="mb-2 icon text-danger" />
-              <h2 className="card-title">My Offer</h2>
+              <h2 className="card-title">Admission</h2>
               <p className="card-text">3 offers received</p>
               <Link to="/dashboard/offers" className="btn btn-danger">
                 View All Offers

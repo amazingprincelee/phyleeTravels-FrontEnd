@@ -34,7 +34,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{marginTop: '100px'}}>
       <div className="row">
         {/* Sidebar */}
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">

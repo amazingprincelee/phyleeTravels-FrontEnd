@@ -31,6 +31,7 @@ import ScrollToTopIcon from "./components/ScrollTOTopIcon.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Packages from "./pages/Packages.jsx";
 import Blog from "./pages/Blog.jsx";
+import AppointmentBooking from "./components/AppointmentBooking.jsx";
 
 
 
@@ -87,6 +88,9 @@ function App() {
         </Route>
         <Route path="/verificationSuccess">
           <EmailVerificationSuccess />
+        </Route>
+        <Route path="/AppointmentBooking">
+          <AppointmentBooking />
         </Route>
         
         
