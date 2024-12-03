@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch, useRouteMatch, useHistory } from 'react-router-dom';
-import { FaUser, FaCalendarAlt, FaEnvelope, FaUserCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaCalendarAlt, FaEnvelope, FaUserCircle, FaCog, FaSignOutAlt, FaHome, FaPlane, FaFolder, FaMicrophone } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Profile from './Profile';
@@ -36,7 +36,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ marginTop: '100px'}}>
       <div className="row">
         {/* Sidebar */}
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -44,17 +44,37 @@ const Dashboard = () => {
             <ul className="nav flex-column">
               <li className="nav-item">
                 <Link className="nav-link active" to={`${url}/admin-dashboard`}>
-                  <FaUser className="me-2" /> Home
+                  <FaHome className="me-2" /> Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/admin-dashboard`}>
+                  <FaUser className="me-2" /> Staff
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" to={`${url}/event-area`}>
-                  <FaCalendarAlt className="me-2" /> Event
+                  <FaFolder className="me-2" /> Application
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/event-area`}>
+                  <FaPlane className="me-2" /> Flight
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/event-area`}>
+                  <FaCalendarAlt className="me-2" /> Appointment
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to={`${url}/event-area`}>
+                  <FaMicrophone className="me-2" /> Event
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" to={`${url}/contactForm-area`}>
-                  <FaEnvelope className="me-2" /> Contact Form
+                  <FaEnvelope className="me-2" /> Contact
                 </Link>
               </li>
               <li className="nav-item">
@@ -64,7 +84,7 @@ const Dashboard = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={`${url}/account-settings`}>
-                  <FaCog className="me-2" /> Account Settings
+                  <FaCog className="me-2" /> Settings
                 </Link>
               </li>
               <li className="nav-item">

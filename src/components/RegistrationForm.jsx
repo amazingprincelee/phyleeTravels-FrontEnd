@@ -59,7 +59,7 @@ const RegistrationForm = () => {
         <div className="container d-flex justify-content-center align-items-center min-vh-100" style={{marginTop:'150px'}}>
           <div className="shadow row w-100" style={{ maxWidth: '800px' }}>
             <div className="p-4 col-md-6 d-flex flex-column justify-content-center bg-light">
-              <h3 className="text-center">Welcome to Phylee Journey</h3>
+              <h3 className="text-center">Welcome to Phylee Travels</h3>
               <p className="text-center">Explore our amazing services and take your journey to the next level with Phylee Journey.</p>
               
             </div>

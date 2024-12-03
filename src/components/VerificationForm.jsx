@@ -44,7 +44,7 @@ const VerificationForm = ({ userId, email }) => {
   };
 
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container d-flex justify-content-center align-items-center min-vh-100">
       <div className="mx-auto card" style={{ maxWidth: '400px' }}>
         <div className="card-body">
           <h2 className="text-center card-title">Verification</h2>
