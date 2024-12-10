@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import eventPhoto from '../images/fair-event.jpeg'
 
 function Events() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://phyleetravels-backend.onrender.com/api/events/all_events')
@@ -22,7 +22,7 @@ function Events() {
   }, []);
 
   const handleRegister = (event) => {
-    history.push({
+    navigate.push({
       pathname: '/RegisterEvent',
       state: { event }
     });

@@ -1,22 +1,22 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 import { ThreeDots } from 'react-loader-spinner';
-import { AuthContext } from './AuthContext';
+import { AuthContext } from './AuthContext'; // Import the AuthContext
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { login, user } = useContext(AuthContext);
-  const history = useHistory();
+  const { login } = useContext(AuthContext); // Access login function from AuthContext
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
   const onRegisterClick = () => {
-    history.push('/Registration');
+    navigate('/registration');
   };
 
   const handleLogin = async (e) => {
@@ -25,13 +25,11 @@ const LoginForm = () => {
     setError(null);
 
     try {
-      const redirectPath = await login(loginData);
-
-      // Redirect based on the returned path from login
-      history.push(redirectPath);
-
+      await login(loginData);  // Use login from AuthContext
+      // After successful login, navigate to the dashboard
+      navigate('/dashboard');
     } catch (error) {
-      setError(error.message);
+      setError(error.message || 'Failed to login.');
     } finally {
       setLoading(false);
     }
@@ -74,7 +72,7 @@ const LoginForm = () => {
             </div>
             <button type="submit" className="custom-btn2 w-100" disabled={loading}>
               {loading ? (
-                <div className='d-flex justify-content-center align-items-center'>
+                <div className="d-flex justify-content-center align-items-center">
                   <ThreeDots color="#ffffff" height={20} width={20} />
                 </div>
               ) : (
@@ -84,11 +82,11 @@ const LoginForm = () => {
           </form>
           <div className="mt-3 text-center">
             <p className="text-white">
-              Don't have an account?{" "}
+              Don't have an account?{' '}
               <button
                 onClick={onRegisterClick}
                 className="p-0 btn btn-link text-decoration-none text-warning"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: 'bold' }}
               >
                 Register Here
               </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Switch, useRouteMatch, useHistory } from 'react-router-dom';
+import { Link, Route, Routes, useResolvedPath, useNavigate } from 'react-router-dom';
 import { FaUser, FaCalendarAlt, FaEnvelope, FaUserCircle, FaCog, FaSignOutAlt, FaHome, FaPlane, FaFolder, FaMicrophone } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -14,8 +14,8 @@ const Notifications = () => <div>Notifications Content</div>;
 const Help = () => <div>Help Content</div>;
 
 const Dashboard = () => {
-  const { path, url } = useRouteMatch();
-  const history = useHistory();
+  const resolvedPath = useResolvedPath("");
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -26,7 +26,7 @@ const Dashboard = () => {
       });
 
       if (response.status === 200) {
-        history.push('/'); // Redirect to homepage after logout
+        navigate.push('/'); // Redirect to homepage after logout
       } else {
         console.error('Logout failed:', response.statusText);
       }
@@ -41,49 +41,49 @@ const Dashboard = () => {
         {/* Sidebar */}
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <div className="pt-3 position-sticky">
-            <ul className="nav flex-column">
+          <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/admin-dashboard`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/admin-dashboard`}>
                   <FaHome className="me-2" /> Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/admin-dashboard`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/admin-dashboard`}>
                   <FaUser className="me-2" /> Staff
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/event-area`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/event-area`}>
                   <FaFolder className="me-2" /> Application
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/event-area`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/event-area`}>
                   <FaPlane className="me-2" /> Flight
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/event-area`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/event-area`}>
                   <FaCalendarAlt className="me-2" /> Appointment
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/event-area`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/event-area`}>
                   <FaMicrophone className="me-2" /> Event
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/contactForm-area`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/contactForm-area`}>
                   <FaEnvelope className="me-2" /> Contact
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/profile`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/profile`}>
                   <FaUserCircle className="me-2" /> Profile
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={`${url}/account-settings`}>
+                <Link className="nav-link" to={`${resolvedPath.pathname}/account-settings`}>
                   <FaCog className="me-2" /> Settings
                 </Link>
               </li>
@@ -99,32 +99,15 @@ const Dashboard = () => {
         {/* Main Content */}
         <main className="mt-3 col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div className="flex-wrap pt-3 pb-2 mb-3 d-flex justify-content-between flex-md-nowrap align-items-center border-bottom"></div>
-          <Switch>
-            <Route exact path={path}>
-              <AdminHomeDashboard />
-            </Route>
-            <Route exact path={`${path}/admin-dashboard`}>
-              <AdminHomeDashboard />
-            </Route>
-            <Route path={`${path}/profile`}>
-              <Profile />
-            </Route>
-            <Route path={`${path}/event-area`}>
-              <EventArea />
-            </Route>
-            <Route path={`${path}/contactForm-area`}>
-              <ContactFormArea />
-            </Route>
-            <Route path={`${path}/account-settings`}>
-              <AccountSettings />
-            </Route>
-            <Route path={`${path}/notifications`}>
-              <Notifications />
-            </Route>
-            <Route path={`${path}/help`}>
-              <Help />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="admin-dashboard" element={<AdminHomeDashboard />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="event-area" element={<EventArea />} />
+            <Route path="contactForm-area" element={<ContactFormArea />} />
+            <Route path="account-settings" element={<AccountSettings />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="help" element={<Help />} />
+          </Routes>
         </main>
       </div>
     </div>

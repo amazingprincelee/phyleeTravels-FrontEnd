@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Switch, useRouteMatch, useHistory } from 'react-router-dom';
+import { Link, Route, Routes, useResolvedPath, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -12,8 +12,8 @@ const Notifications = () => <div>Notifications Content</div>;
 const Help = () => <div>Help Content</div>;
 
 const Dashboard = () => {
-  const { path, url } = useRouteMatch();
-  const history = useHistory();
+  const resolvedPath = useResolvedPath("");
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -24,7 +24,7 @@ const Dashboard = () => {
       });
 
       if (response.status === 200) {
-        history.push('/'); // Redirect to homepage after logout
+        navigate.push('/'); // Redirect to homepage after logout
       } else {
         console.error('Logout failed:', response.statusText);
       }
@@ -39,19 +39,19 @@ const Dashboard = () => {
         {/* Sidebar */}
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <div className="pt-3 position-sticky">
-            <ul className="nav flex-column">
+          <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/home-dashboard`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/home-dashboard`}>
                   <FaHome className="me-2" /> Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to={`${url}/profile`}>
+                <Link className="nav-link active" to={`${resolvedPath.pathname}/profile`}>
                   <FaUser className="me-2" /> Profile
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={`${url}/account-settings`}>
+                <Link className="nav-link" to={`${resolvedPath.pathname}/account-settings`}>
                   <FaCog className="me-2" /> Account Settings
                 </Link>
               </li>
@@ -67,26 +67,14 @@ const Dashboard = () => {
         {/* Main Content */}
         <main className="mt-3 col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div className="flex-wrap pt-3 pb-2 mb-3 d-flex justify-content-between flex-md-nowrap align-items-center border-bottom"></div>
-          <Switch>
-            <Route exact path={path}>
-              <HomeDashboard />
-            </Route>
-            <Route exact path={`${path}/home-dashboard`}>
-              <HomeDashboard />
-            </Route>
-            <Route path={`${path}/profile`}>
-              <Profile />
-            </Route>
-            <Route path={`${path}/account-settings`}>
-              <AccountSettings />
-            </Route>
-            <Route path={`${path}/notifications`}>
-              <Notifications />
-            </Route>
-            <Route path={`${path}/help`}>
-              <Help />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<HomeDashboard />} />
+            <Route path="home-dashboard" element={<HomeDashboard />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="account-settings" element={<AccountSettings />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="help" element={<Help />} />
+          </Routes>
         </main>
       </div>
     </div>

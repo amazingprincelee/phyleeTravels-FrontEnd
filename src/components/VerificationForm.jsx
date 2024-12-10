@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 
 const VerificationForm = ({ userId, email }) => {
@@ -8,7 +8,7 @@ const VerificationForm = ({ userId, email }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [verificationMessage, setVerificationMessage] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
    
@@ -31,7 +31,7 @@ const VerificationForm = ({ userId, email }) => {
   
       if (response.status === 201) {
         // Verification successful, redirect to successpage or any other page
-        history.push('/verificationSuccess');
+        navigate.push('/verificationSuccess');
       } else {
         setError('Verification failed');
       }

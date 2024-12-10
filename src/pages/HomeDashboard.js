@@ -51,49 +51,11 @@ const HomeDashboard = () => {
 
   return (
     <div className="container my-4">
-      <h1>Hi {firstName}</h1>
-      <div className="row">
-        <div className="col-md-4">
-          <div className="text-center card">
-            <div className="card-body">
-              <FaUser className="mb-2 icon text-danger" />
-              <h2 className="card-title">Profile</h2>
-              <p className="card-text">75% completed</p>
-              <Link className="btn btn-danger" to="/dashboard/profile">
-                View and Complete
-              </Link>
-            </div>
-          </div>
-        </div>
+      <p>Hi {firstName}</p>
 
-        <div className="col-md-4">
-          <div className="text-center card">
-            <div className="card-body">
-              <FaList className="mb-2 icon text-danger" />
-              <h2 className="card-title">Travel & Tours</h2>
-              <p className="card-text">5 received</p>
-              <Link to="/dashboard/saved-items" className="btn btn-danger">
-                View Saved Items
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="text-center card">
-            <div className="card-body">
-              <FaRocket className="mb-2 icon text-danger" />
-              <h2 className="card-title">Admission</h2>
-              <p className="card-text">3 offers received</p>
-              <Link to="/dashboard/offers" className="btn btn-danger">
-                View All Offers
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 row">
+      
+      {/* start your educational or travel section */}
+      <div className="mt-4 mb-5 row">
         <div className="col-md-6">
           <div className="p-3 rounded shadow-sm d-flex align-items-center bg-light">
             <FaCheck className="me-3" style={{ fontSize: '50px' }} />
@@ -148,6 +110,56 @@ const HomeDashboard = () => {
           {selectedOption === 'turkeyTourist' && <TurkeyTourist />}
         </div>
       )}
+
+
+
+
+
+
+
+      
+      <div className="row">
+        <div className="col-md-4">
+          <div className="text-center card">
+            <div className="card-body">
+              <FaUser className="mb-2 icon text-danger" />
+              <h2 className="card-title">Profile</h2>
+              <p className="card-text">75% completed</p>
+              <Link className="btn btn-danger" to="/dashboard/profile">
+                View and Complete
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          <div className="text-center card">
+            <div className="card-body">
+              <FaList className="mb-2 icon text-danger" />
+              <h2 className="card-title">Travel & Tours</h2>
+              <p className="card-text">5 received</p>
+              <Link to="/dashboard/saved-items" className="btn btn-danger">
+                View Saved Items
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          <div className="text-center card">
+            <div className="card-body">
+              <FaRocket className="mb-2 icon text-danger" />
+              <h2 className="card-title">Admission</h2>
+              <p className="card-text">3 offers received</p>
+              <Link to="/dashboard/offers" className="btn btn-danger">
+                View All Offers
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function RegisterEvent() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   // State to hold event data and registration form data
@@ -38,9 +38,9 @@ function RegisterEvent() {
     } else {
       // Handle the case where event is not available in location state
       // Redirect to events page or handle gracefully
-      history.push('/events');
+      navigate.push('/events');
     }
-  }, [location.state, history]);
+  }, [location.state, navigate]);
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -79,7 +79,7 @@ function RegisterEvent() {
   // Close modal and redirect to events page
   const closeModal = () => {
     setModalVisible(false);
-    history.push('/events');
+    navigate.push('/events');
   };
 
   // Render loading state or null if event is not loaded yet

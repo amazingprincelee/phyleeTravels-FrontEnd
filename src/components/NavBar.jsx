@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo2.png";
 import { FaSearch } from "react-icons/fa";
+import logo from "../images/logo2.png";
+import { useAuth } from "./AuthContext";
 
 function NavBar() {
+  const { user, logout } = useAuth(); // Access user from AuthContext
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navRef = useRef(null);
@@ -34,6 +36,14 @@ function NavBar() {
     };
   }, [isNavOpen]);
 
+  const handleLogout = async () => {
+    try {
+      await logout(); // Call the logout function from AuthContext
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
     <nav
       ref={navRef}
@@ -54,7 +64,10 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+          id="navbarSupportedContent"
+        >
           <ul className="mx-auto mb-2 navbar-nav mb-lg-0">
             <li className="nav-item">
               <Link to="/" className="nav-link text-light">
@@ -62,22 +75,27 @@ function NavBar() {
               </Link>
             </li>
             <li className="ms-2 nav-item dropdown">
-              <Link to="#" className="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle text-light"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
                 Get in Touch
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/AboutUs" className="dropdown-item">
+                  <Link to="/about-us" className="dropdown-item">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contactUs" className="dropdown-item">
+                  <Link to="/contact-us" className="dropdown-item">
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Events" className="dropdown-item">
+                  <Link to="/events" className="dropdown-item">
                     Events
                   </Link>
                 </li>
@@ -89,7 +107,12 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item dropdown ms-2">
-              <Link to="#" className="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle text-light"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
                 Destination
               </Link>
               <ul className="dropdown-menu">
@@ -110,6 +133,13 @@ function NavBar() {
                 Blog
               </Link>
             </li>
+            {user && (
+              <li className="nav-item ms-2">
+                <Link to="/dashboard" className="nav-link text-light">
+                  Dashboard
+                </Link>
+              </li>
+            )}
           </ul>
           <div className="d-flex align-items-center">
             <button className="btn btn-link text-light me-3" onClick={toggleSearch}>
@@ -118,14 +148,20 @@ function NavBar() {
             {isSearchOpen && (
               <input
                 type="text"
-                className=" form-control ms-2"
+                className="form-control ms-2"
                 placeholder="Search..."
                 style={{ width: "200px", marginRight: "8px" }}
               />
             )}
-            <Link to="/Login" className="btn btn-outline-light">
-              Sign In
-            </Link>
+            {!user ? (
+              <Link to="/login" className="btn btn-outline-light">
+                Sign In
+              </Link>
+            ) : (
+              <button className="btn btn-outline-light" onClick={handleLogout}>
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </div>

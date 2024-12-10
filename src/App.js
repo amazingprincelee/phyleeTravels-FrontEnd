@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import MyCarousel from "./components/carousel/MyCarousel.jsx";
@@ -18,7 +18,7 @@ import EmailVerificationSuccess from "./components/EmailVerificationSuccess";
 import Destination from "./pages/Destination";
 import StudyAbroad from "./pages/StudyAbroad";
 import FindACourse from "./pages/FindACourse";
-import StudyAbroadCarousel from "./components/carousel/StudyAbroad.jsx"
+import StudyAbroadCarousel from "./components/carousel/StudyAbroad.jsx";
 import FindUs from "./pages/FindUs.js";
 import Events from "./pages/Events.js";
 import RegisterEvent from "./pages/RegisterEvent.js";
@@ -32,97 +32,60 @@ import ContactUs from "./pages/ContactUs.jsx";
 import Packages from "./pages/Packages.jsx";
 import Blog from "./pages/Blog.jsx";
 import AppointmentBooking from "./components/AppointmentBooking.jsx";
-
-
-
-
-
+import RequireAuth from "./RequireAuth.js";
 
 function App() {
- 
-
   return (
     <div>
       <NavBar />
       <ScrollToTop />
       <ScrollToTopIcon />
-      <Switch>
-        <Route exact path="/">
-          <div>
-           <MyCarousel />
-           <ExploreCarouselComponent />
-           <StudyAbroadCarousel />
-           <FlightBookingBanner />
-           <TourPartners />
-           <Testimonials />
-           <SubscriptionBanner />
-          
-          </div>
-        </Route>
-        <Route path="/Dashboard">
-          <Dashboard />
-        </Route>
-        <Route path="/AdminArea">
-          <AdminArea />
-        </Route>
-        <Route path="/AboutUs">
-          <AboutUs />
-        </Route>
-        <Route path="/ContactUs">
-          <ContactUs />
-        </Route>
-        <Route path="/packages">
-          <Packages />
-        </Route>
-        <Route path="/blog">
-          <Blog />
-        </Route>
-        <Route path="/Registration">
-          <RegistrationForm />
-        </Route>
-        <Route path="/Login">
-          <LoginForm />
-        </Route>
-        <Route path="/Verification">
-          <VerificationForm />
-        </Route>
-        <Route path="/verificationSuccess">
-          <EmailVerificationSuccess />
-        </Route>
-        <Route path="/AppointmentBooking">
-          <AppointmentBooking />
-        </Route>
-        
-        
-        
-        <Route path="/destination">
-          <Destination />
-        </Route>
-        <Route path="/studyAbroad">
-          <StudyAbroad />
-        </Route>
-        <Route path="/findACourse">
-          <FindACourse />
-        </Route>
-        <Route path="/FindUs">
-          <FindUs />
-        </Route>
-        <Route path="/Events">
-          <Events />
-        </Route>
-        <Route path="/RegisterEvent">
-          <RegisterEvent />
-        </Route>
-        <Route path="/Expert">
-          <ExpertTravelPage />
-        </Route>
-        <Route path="/student-loan">
-          <StudentLoan />
-        </Route>
-        <Route path="/group-travel">
-          <GroupTravelPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <MyCarousel />
+              <ExploreCarouselComponent />
+              <StudyAbroadCarousel />
+              <FlightBookingBanner />
+              <TourPartners />
+              <Testimonials />
+              <SubscriptionBanner />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        />
+        <Route path="/admin-area" element={<AdminArea />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/packages" element={<Packages />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/registration" element={<RegistrationForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/verification" element={<VerificationForm />} />
+        <Route
+          path="/verification-success"
+          element={<EmailVerificationSuccess />}
+        />
+        <Route path="/appointment" element={<AppointmentBooking />} />
+        <Route path="/destination" element={<Destination />} />
+        <Route path="/study-abroad" element={<StudyAbroad />} />
+        <Route path="/find-course" element={<FindACourse />} />
+        <Route path="/find-us" element={<FindUs />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/registerEvent" element={<RegisterEvent />} />
+        <Route path="/expert" element={<ExpertTravelPage />} />
+        <Route path="/student-loan" element={<StudentLoan />} />
+        <Route path="/group-travel" element={<GroupTravelPage />} />
+      </Routes>
       <Footer />
     </div>
   );

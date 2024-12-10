@@ -1,74 +1,89 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
+
+// Create context
 export const AuthContext = createContext();
 
+// Provider component
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("authToken"));
+  const [user, setUser] = useState(() =>
+    token ? jwtDecode(localStorage.getItem("authToken")) : null
+  );
 
+  // Axios instance
+  const api = axios.create({
+    baseURL: "http://localhost:3000/api",
+  });
+
+  // Add interceptor to update Authorization header
+  api.interceptors.request.use((config) => {
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  });
+
+  // Handle token changes
   useEffect(() => {
-    checkAuthentication();
-  }, []);
+    if (token) {
+      setUser(jwtDecode(token));
+      localStorage.setItem("authToken", token);
+    } else {
+      setUser(null);
+      localStorage.removeItem("authToken");
+    }
+  }, [token]);
 
-  const checkAuthentication = async () => {
+  // Methods
+  const register = async (data) => {
     try {
-      const response = await axios.get('https://phyleetravels-backend.onrender.com/api/auth/check-auth');
-      setIsLoggedIn(response.data.loggedIn);
-      if (response.data.loggedIn) {
-        setUser(response.data.user);
-      }
+      const response = await api.post("/auth/register", data);
+      return response.data;
     } catch (error) {
-      console.error('Error checking authentication:', error);
+      throw error.response?.data?.message || "Registration failed";
     }
   };
 
-  const login = async (loginData) => {
+  const login = async (credentials) => {
     try {
-      const response = await axios.post('https://phyleetravels-backend.onrender.com/api/auth/login', loginData);
-      if (response.status === 201) {
-        localStorage.setItem('userId', response.data.user.id);
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('email', response.data.user.email);
-        setIsLoggedIn(true);
-        setUser(response.data.user);
-
-        // Redirect based on role
-        if (response.data.user.role === 'admin') {
-          return '/AdminPage'; // Redirect to AdminPage if user is admin
-        } else {
-          return '/dashboard'; // Redirect to dashboard for non-admin users
-        }
-      } else {
-        throw new Error('Login failed');
-      }
+      const response = await api.post("/auth/login", credentials);
+      setToken(response.data.token);
+      return response.data.message;
     } catch (error) {
-      throw new Error(error.response?.data?.message || 'Error during login');
+      throw error.response?.data?.message || "Login failed";
+    }
+  };
+
+  const verify = async (userId, verifyCode) => {
+    try {
+      const response = await api.post(`/auth/verify/${userId}`, { verifyCode });
+      return response.data.message;
+    } catch (error) {
+      throw error.response?.data?.message || "Verification failed";
     }
   };
 
   const logout = async () => {
     try {
-      const response = await axios.get('https://phyleetravels-backend.onrender.com/api/auth/logout');
-      if (response.status === 200) {
-        setIsLoggedIn(false);
-        setUser(null);
-        localStorage.removeItem('userId');
-        localStorage.removeItem('token');
-        localStorage.removeItem('email');
-      }
+      await api.get("/auth/logout"); // Optional, ensure server-side session invalidation
     } catch (error) {
-      console.error('Error logging out:', error);
+      console.error("Logout failed:", error.response?.data?.message || error.message);
+    } finally {
+      setToken(null); // Clear token state
+      localStorage.removeItem("authToken"); // Ensure it's removed from localStorage
     }
   };
-
-  const updateUserWithEmail = (email) => {
-    setUser({ ...user, email });
-  };
+  
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, user, updateUserWithEmail }}>
+    <AuthContext.Provider value={{ user, token, register, login, verify, logout, api }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+// Custom hook for using AuthContext
+export const useAuth = () => useContext(AuthContext);

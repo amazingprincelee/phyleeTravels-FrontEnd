@@ -26,7 +26,7 @@ function MyCarousel() {
               <p className="opacity-75 desc">We specialize in providing top-notch traveling opportunities and services, catering to a diverse range of needs.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" style={{fontSize: "0.7rem"}} >Need Travel Advices?</button>
-                <Link className="m-1 btn btn-sm btn-dark rounded-pill" to="/AppointmentBooking">Schedule appointment</Link>
+                <Link className="m-1 btn btn-sm btn-dark rounded-pill" to="/appointment">Schedule appointment</Link>
               </div>
               
               <p className="popular-places">Popular Place: UK, Canada, United States</p>
@@ -41,7 +41,7 @@ function MyCarousel() {
               <p className="opacity-75 desc">Explore breathtaking places and create <br/> unforgettable memories with us.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
-                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/AppointmentBooking">Schedule appointment</Link>
+                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/appointment">Schedule appointment</Link>
               </div>
               <p className="popular-places">Popular Place: UK, Canada, United States</p>
             </div>
@@ -55,7 +55,7 @@ function MyCarousel() {
               <p className="opacity-75 desc">Get ready for a thrilling journey to <br/> the world's most stunning destinations.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
-                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/AppointmentBooking">Schedule appointment</Link>
+                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/appointment">Schedule appointment</Link>
               </div>
               <p className="popular-places">Popular Place: UK, Canada, United States</p>
             </div>
@@ -69,7 +69,7 @@ function MyCarousel() {
               <p className="opacity-75 desc">Let us handle the details, so you <br/>can relax and enjoy the journey..</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
-                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/AppointmentBooking">Schedule appointment</Link>
+                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/appointment">Schedule appointment</Link>
               </div>
               <p className="popular-places">Popular Place: UK, Canada, United States</p>
             </div>
@@ -83,7 +83,7 @@ function MyCarousel() {
               <p className="opacity-75 desc">Let us handle the details, so you <br/>can relax and enjoy the journey.</p>
               <div className="bg-light d-flex justify-content-between align-items-center header-action" >
                 <button className="btn btn-lg header-action-btn" >Need Travel Advice?</button>
-                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/AppointmentBooking">Schedule appointment</Link>
+                <Link className="m-3 btn btn-md btn-dark rounded-pill" to="/appointment">Schedule appointment</Link>
               </div>
               <p className="popular-places">Popular Place: UK, Canada, United States</p>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import VerificationForm from './VerificationForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,14 +17,14 @@ const RegistrationForm = () => {
   const [loading, setLoading] = useState(false);
   const [passwordMatchError, setPasswordMatchError] = useState(false);
   const [userData, setUserData] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();;
 
   const handleInputChange = (e) => {
     setRegistrationData({ ...registrationData, [e.target.name]: e.target.value });
   };
 
   const onLoginClick = () => {
-    history.push('/Login');
+    navigate.push('/Login');
   };
 
   const handleRegistration = async (e) => {
