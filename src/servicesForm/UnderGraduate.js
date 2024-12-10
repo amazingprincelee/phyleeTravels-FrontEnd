@@ -1,140 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
 function Undergraduate() {
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const [message, setMessage] = useState('');
-    const [email, setEmail] = useState('');
-    const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId');
-    const [loading, setLoading] = useState(false);
+  return (
+    <div className="container mt-5">
 
-    useEffect(() => {
-        const fetchEmail = async () => {
-            try {
-                const response = await axios.get(`https://phyleetravels-backend.onrender.com/api/user/profile/${userId}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
+      {/* Title Section */}
+      <h2 className="mb-4 text-center text-primary">Undergraduate Admission Requirements</h2>
+      <p className="mb-4 text-center text-muted">
+        Follow these simple steps to secure your undergraduate admission quickly and easily.
+      </p>
 
-                if (response.status === 200 && response.data.userProfile && response.data.userProfile.email) {
-                    setEmail(response.data.userProfile.email);
-                } else {
-                    console.error('Email not found in response.');
-                }
-            } catch (error) {
-                console.error('Error fetching user profile:', error);
-            }
-        };
-
-        if (userId) {
-            fetchEmail();
-        } else {
-            console.error('User ID is not available.');
-        }
-    }, [userId, token]);
-
-    const handleFileChange = (event) => {
-        setSelectedFiles(prevFiles => [...prevFiles, ...Array.from(event.target.files)]);
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        if (!email) {
-            console.error('User email is not available.');
-            return;
-        }
-
-        setLoading(true);
-
-        const formData = new FormData();
-        selectedFiles.forEach((file, index) => {
-            console.log(`Appending file: ${file.name}`);
-            formData.append(`files[${index}]`, file);
-        });
-
-        try {
-            const url = `https://phylee-75a6aa507dc5.herokuapp.com/api/services/undergraduate/upload-files/${encodeURIComponent(email)}`;
-            console.log(`Submitting to URL: ${url}`);
-            const response = await axios.post(url, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            console.log('Upload response:', response);
-
-            if (response.status === 201) {
-                setMessage(response.data.message);
-            } else {
-                setMessage('Error uploading files');
-                console.error('Unexpected response status:', response.status);
-            }
-        } catch (error) {
-            console.error('Error uploading files:', error);
-            setMessage('Error uploading files');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-        <div className="container mt-5">
-            <h1 className="mb-4">Undergraduate Studies</h1>
-            {message && <p className={`mt-3 text-center ${message === 'Error uploading files' ? 'text-danger' : 'text-success'}`}>{message}</p>}
-            <p>Please upload the following documents:</p>
-
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3 row">
-                    <label htmlFor="waecNeco" className="col-sm-4 col-form-label">WAEC/NECO:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control" id="waecNeco" name="files" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="curriculumVitae" className="col-sm-4 col-form-label">Curriculum Vitae:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control" id="curriculumVitae" name="files" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="birthDocument" className="col-sm-4 col-form-label">Birth Certificate/Affidavit:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control" id="birthDocument" name="files" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="passportDataPage" className="col-sm-4 col-form-label">International Passport:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control" id="passportDataPage" name="files" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="recommendationLetters" className="col-sm-4 col-form-label">Recommendation Letters:</label>
-                    <div className="col-sm-8">
-                        <input type="file" className="form-control" id="recommendationLetters" name="files" onChange={handleFileChange} multiple />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <div className="col-sm-4"></div>
-                    <div className="col-sm-8">
-                        <button type="submit" className="custom-btn w-100 text-light" disabled={loading}>
-                            {loading ? (
-                                <div className="d-flex justify-content-center align-items-center">
-                                    <ThreeDots color="#ffffff" height={20} width={20} />
-                                </div>
-                            ) : (
-                                'Upload'
-                            )}
-                        </button>
-                    </div>
-                </div>
-            </form>
+      {/* Requirements Information */}
+      <div className="mb-4 shadow-sm card">
+        <div className="card-body">
+          <h5 className="card-title">Required Documents</h5>
+          <ul className="list-unstyled">
+            <li><strong>Academic Transcripts</strong> - Latest copy of your transcripts</li>
+            <li><strong>Proof of Identity</strong> - A valid passport or national ID</li>
+            <li><strong>Personal Statement</strong> - A brief statement of intent</li>
+            <li><strong>Recommendation Letters</strong> - Letters from your teachers or mentors</li>
+          </ul>
         </div>
-    );
+      </div>
+
+      {/* Payment Information */}
+      <div className="mb-4 shadow-sm card">
+        <div className="card-body">
+          <h5 className="card-title">Processing Fee</h5>
+          <p>
+            To process your admission, a fee of <strong>N150,000</strong> is required.
+            This fee covers the cost of processing your documents and securing your spot in the university.
+          </p>
+          <p>
+            Admission will be confirmed within <strong>5 to 10 working days</strong> after submission of all your documents.
+            You will be able to submit documents after payment is confirmed
+          </p>
+        </div>
+      </div>
+
+      {/* Action Button */}
+      <div className="text-center">
+        <button 
+          className="mt-3 btn btn-primary btn-lg" 
+          onClick={() => alert('Redirecting to payment page...')}
+        >
+          Secure Your Admission Now
+        </button>
+      </div>
+      
+      {/* Optional Loading Spinner */}
+      <div className="mt-4 text-center">
+        <ThreeDots 
+          height="40" 
+          width="40" 
+          radius="9" 
+          color="#007bff" 
+          ariaLabel="three-dots-loading" 
+          visible={false} 
+        />
+      </div>
+
+    </div>
+  );
 }
 
 export default Undergraduate;

@@ -56,12 +56,12 @@ function App() {
           }
         />
         <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
-            </RequireAuth>
-          }
+         path="/dashboard/*"  // This should handle all routes inside the dashboard
+         element={
+           <RequireAuth>
+             <Dashboard />
+           </RequireAuth>
+         }
         />
         <Route path="/admin-area" element={<AdminArea />} />
         <Route path="/about-us" element={<AboutUs />} />

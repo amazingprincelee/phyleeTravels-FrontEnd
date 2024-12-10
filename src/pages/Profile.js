@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`https://phyleetravels-backend.onrender.com/api/user/profile/${userId}`, {
+        const response = await axios.get(`https://http://localhost:3000/api/api/user/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -29,7 +29,7 @@ const Profile = () => {
   }, [token, userId]);
 
   return (
-    <div>
+    <div className='' style={{marginTop: "80px"}}>
       <h2>User Profile</h2>
       <p>First Name: {userProfile.firstName}</p>
       <p>Last Name: {userProfile.lastName}</p>

@@ -37,7 +37,7 @@ const AccountSettings = () => {
   };
 
   return (
-    <div>
+    <div style={{marginTop: "80px", background:'green'}}>
       <h2>Account Settings</h2>
       {successMessage && (
         <div className="alert alert-success" role="alert">
