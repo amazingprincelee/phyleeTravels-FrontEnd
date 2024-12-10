@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
   // Axios instance
   const api = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: "https://phyleetravels-backend.onrender.com/api",
   });
 
   // Add interceptor to update Authorization header
